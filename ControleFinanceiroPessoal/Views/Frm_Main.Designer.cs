@@ -53,7 +53,6 @@
             Mns_Finance.Size = new Size(728, 24);
             Mns_Finance.TabIndex = 0;
             Mns_Finance.Text = "menuStrip1";
-            
             // 
             // arquivoToolStripMenuItem
             // 

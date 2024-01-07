@@ -121,7 +121,7 @@ public partial class Frm_Main : Form
 
         void vToolTip001_Click(object sender, EventArgs e)
         {
-            if(!(tbc_Finance.SelectedTab == null))
+            if (!(tbc_Finance.SelectedTab == null))
             {
                 tbc_Finance.TabPages.Remove(tbc_Finance.SelectedTab);
             }
@@ -132,7 +132,18 @@ public partial class Frm_Main : Form
         }
         void vToolTip003_Click(object sender, EventArgs e)
         {
+            if (!(tbc_Finance.SelectedTab == null))
+            {
+                int ItemSelecionado = tbc_Finance.SelectedIndex;
 
+                for (int i = tbc_Finance.TabCount -1; i > ItemSelecionado; i+= -1)
+                {
+                    tbc_Finance.TabPages.Remove(tbc_Finance.TabPages[i]);
+                        
+                }
+            }
         }
     }
+
+   
 }
