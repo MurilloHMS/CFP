@@ -97,6 +97,7 @@
             cadastrarNovoUsuárioToolStripMenuItem.Name = "cadastrarNovoUsuárioToolStripMenuItem";
             cadastrarNovoUsuárioToolStripMenuItem.Size = new Size(199, 22);
             cadastrarNovoUsuárioToolStripMenuItem.Text = "Cadastrar Novo Usuário";
+            cadastrarNovoUsuárioToolStripMenuItem.Click += cadastrarNovoUsuárioToolStripMenuItem_Click;
             // 
             // exibirToolStripMenuItem
             // 
@@ -122,6 +123,7 @@
             // tbc_Finance
             // 
             tbc_Finance.Dock = DockStyle.Fill;
+            tbc_Finance.ImageList = Iml_Menu;
             tbc_Finance.Location = new Point(0, 24);
             tbc_Finance.Name = "tbc_Finance";
             tbc_Finance.SelectedIndex = 0;
@@ -135,6 +137,7 @@
             Iml_Menu.ImageStream = (ImageListStreamer)resources.GetObject("Iml_Menu.ImageStream");
             Iml_Menu.TransparentColor = Color.Transparent;
             Iml_Menu.Images.SetKeyName(0, "Database Administrator_1.ico");
+            Iml_Menu.Images.SetKeyName(1, "Add User Male.ico");
             // 
             // Frm_Main
             // 

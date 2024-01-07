@@ -1,6 +1,7 @@
 using ControleFinanceiroPessoal.Forms;
 using ControleFinanceiroPessoal.Forms.UC;
 using ControleFinanceiroPessoal.Model;
+using ControleFinanceiroPessoal.Views.UC;
 using Microsoft.VisualBasic;
 using System.Drawing.Text;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
@@ -10,6 +11,7 @@ namespace ControleFinanceiroPessoal;
 public partial class Frm_Main : Form
 {
     int ControlDataBaseSetting = 0;
+    int ControlCustumerRegistration = 0;
 
     public Frm_Main()
     {
@@ -92,7 +94,7 @@ public partial class Frm_Main : Form
     {
         var vToolTip = new ToolStripMenuItem();
         vToolTip.Text = text;
-        Icon myIcon = (Icon)global::ControleFinanceiroPessoal.Properties.Resources.ResourceManager.GetObject(nomeDoIcone);
+        Icon myIcon = (Icon)global::ControleFinanceiroPessoal.Properties.Resources.ResourceManager.GetObject(nomeDoIcone)!;
         vToolTip.Image = myIcon.ToBitmap();
         return vToolTip;
 
@@ -121,6 +123,7 @@ public partial class Frm_Main : Form
 
         void vToolTip001_Click(object sender, EventArgs e)
         {
+            //apaga a aba selecionada 
             if (!(tbc_Finance.SelectedTab == null))
             {
                 tbc_Finance.TabPages.Remove(tbc_Finance.SelectedTab);
@@ -128,22 +131,47 @@ public partial class Frm_Main : Form
         }
         void vToolTip002_Click(object sender, EventArgs e)
         {
+            //apaga todas as abas
             tbc_Finance.TabPages.Clear();
         }
         void vToolTip003_Click(object sender, EventArgs e)
         {
+            //apaga todas as abas a direita
             if (!(tbc_Finance.SelectedTab == null))
             {
                 int ItemSelecionado = tbc_Finance.SelectedIndex;
 
-                for (int i = tbc_Finance.TabCount -1; i > ItemSelecionado; i+= -1)
+                for (int i = tbc_Finance.TabCount - 1; i > ItemSelecionado; i += -1)
                 {
+                    if (tbc_Finance.SelectedTab.Name == "Cadastro de Usuário")
+                    {
+                        int ControlCustumerRegistration = 0;
+                    }
                     tbc_Finance.TabPages.Remove(tbc_Finance.TabPages[i]);
-                        
+
                 }
             }
         }
     }
 
-   
+    private void cadastrarNovoUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        if (ControlCustumerRegistration == 0)
+        {
+            Frm_CustomerRegistrations frm_CustomerRegistrations = new Frm_CustomerRegistrations();
+            frm_CustomerRegistrations.Dock = DockStyle.Fill;
+            TabPage tb = new TabPage();
+            tb.Name = "Cadastro de Usuário";
+            tb.Text = "Cadastro de Usuário";
+            tb.ImageIndex = 1;
+            tb.Controls.Add(frm_CustomerRegistrations);
+            tbc_Finance.TabPages.Add(tb);
+            //ControlCustumerRegistration++;
+
+        }
+        else
+        {
+            MessageBox.Show("Já existe uma aba de Cadastro de Usuário aberta", "Controle de Abas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+    }
 }

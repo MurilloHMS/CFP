@@ -8,15 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ControleFinanceiroPessoal.Forms.UC
+namespace ControleFinanceiroPessoal.Views.UC
 {
-    public partial class Frm_DataBaseSettings_UC : UserControl
+    public partial class Frm_CustomerRegistrations : UserControl
     {
-        public Frm_DataBaseSettings_UC()
+        public Frm_CustomerRegistrations()
         {
             InitializeComponent();
         }
-
-        
     }
 }
