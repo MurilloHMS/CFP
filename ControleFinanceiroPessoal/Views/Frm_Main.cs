@@ -143,10 +143,7 @@ public partial class Frm_Main : Form
 
                 for (int i = tbc_Finance.TabCount - 1; i > ItemSelecionado; i += -1)
                 {
-                    if (tbc_Finance.SelectedTab.Name == "Cadastro de Usuário")
-                    {
-                        int ControlCustumerRegistration = 0;
-                    }
+                    
                     tbc_Finance.TabPages.Remove(tbc_Finance.TabPages[i]);
 
                 }
