@@ -37,6 +37,8 @@
             sairToolStripMenuItem = new ToolStripMenuItem();
             cadastroToolStripMenuItem = new ToolStripMenuItem();
             cadastrarNovoUsuárioToolStripMenuItem = new ToolStripMenuItem();
+            cadastroDeLíderesToolStripMenuItem = new ToolStripMenuItem();
+            cadastroDeMembrosToolStripMenuItem = new ToolStripMenuItem();
             exibirToolStripMenuItem = new ToolStripMenuItem();
             ferramentasToolStripMenuItem = new ToolStripMenuItem();
             configuraçõesBancoDeDadosToolStripMenuItem = new ToolStripMenuItem();
@@ -50,7 +52,7 @@
             Mns_Finance.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, cadastroToolStripMenuItem, exibirToolStripMenuItem, ferramentasToolStripMenuItem });
             Mns_Finance.Location = new Point(0, 0);
             Mns_Finance.Name = "Mns_Finance";
-            Mns_Finance.Size = new Size(728, 24);
+            Mns_Finance.Size = new Size(834, 24);
             Mns_Finance.TabIndex = 0;
             Mns_Finance.Text = "menuStrip1";
             // 
@@ -86,7 +88,7 @@
             // 
             // cadastroToolStripMenuItem
             // 
-            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarNovoUsuárioToolStripMenuItem });
+            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarNovoUsuárioToolStripMenuItem, cadastroDeLíderesToolStripMenuItem, cadastroDeMembrosToolStripMenuItem });
             cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
             cadastroToolStripMenuItem.Size = new Size(66, 20);
             cadastroToolStripMenuItem.Text = "Cadastro";
@@ -98,6 +100,20 @@
             cadastrarNovoUsuárioToolStripMenuItem.Size = new Size(199, 22);
             cadastrarNovoUsuárioToolStripMenuItem.Text = "Cadastrar Novo Usuário";
             cadastrarNovoUsuárioToolStripMenuItem.Click += cadastrarNovoUsuárioToolStripMenuItem_Click;
+            // 
+            // cadastroDeLíderesToolStripMenuItem
+            // 
+            cadastroDeLíderesToolStripMenuItem.Name = "cadastroDeLíderesToolStripMenuItem";
+            cadastroDeLíderesToolStripMenuItem.Size = new Size(199, 22);
+            cadastroDeLíderesToolStripMenuItem.Text = "Cadastro de Líderes";
+            cadastroDeLíderesToolStripMenuItem.Click += cadastroDeLíderesToolStripMenuItem_Click;
+            // 
+            // cadastroDeMembrosToolStripMenuItem
+            // 
+            cadastroDeMembrosToolStripMenuItem.Name = "cadastroDeMembrosToolStripMenuItem";
+            cadastroDeMembrosToolStripMenuItem.Size = new Size(199, 22);
+            cadastroDeMembrosToolStripMenuItem.Text = "Cadastro de Membros";
+            cadastroDeMembrosToolStripMenuItem.Click += cadastroDeMembrosToolStripMenuItem_Click;
             // 
             // exibirToolStripMenuItem
             // 
@@ -127,7 +143,7 @@
             tbc_Finance.Location = new Point(0, 24);
             tbc_Finance.Name = "tbc_Finance";
             tbc_Finance.SelectedIndex = 0;
-            tbc_Finance.Size = new Size(728, 407);
+            tbc_Finance.Size = new Size(834, 576);
             tbc_Finance.TabIndex = 1;
             tbc_Finance.MouseDown += tbc_Finance_MouseDown;
             // 
@@ -143,7 +159,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(728, 431);
+            ClientSize = new Size(834, 600);
             Controls.Add(tbc_Finance);
             Controls.Add(Mns_Finance);
             MainMenuStrip = Mns_Finance;
@@ -169,5 +185,7 @@
         private ToolStripMenuItem cadastrarNovoUsuárioToolStripMenuItem;
         private ToolStripMenuItem conectarToolStripMenuItem;
         private ToolStripMenuItem desconectarToolStripMenuItem;
+        private ToolStripMenuItem cadastroDeLíderesToolStripMenuItem;
+        private ToolStripMenuItem cadastroDeMembrosToolStripMenuItem;
     }
 }

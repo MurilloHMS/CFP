@@ -143,7 +143,7 @@ public partial class Frm_Main : Form
 
                 for (int i = tbc_Finance.TabCount - 1; i > ItemSelecionado; i += -1)
                 {
-                    
+
                     tbc_Finance.TabPages.Remove(tbc_Finance.TabPages[i]);
 
                 }
@@ -170,5 +170,22 @@ public partial class Frm_Main : Form
         {
             MessageBox.Show("Já existe uma aba de Cadastro de Usuário aberta", "Controle de Abas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
+    }
+
+    private void cadastroDeLíderesToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void cadastroDeMembrosToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        Frm_LeaderRegistration frm  = new Frm_LeaderRegistration();
+        frm.Dock = DockStyle.Fill;
+        TabPage tb = new TabPage();
+        tb.Name = "Cadastro de Membros";
+        tb.Text = "Cadastro de Membros";
+        tb.ImageIndex = 1;
+        tb.Controls.Add(frm);
+        tbc_Finance.TabPages.Add(tb);
     }
 }
