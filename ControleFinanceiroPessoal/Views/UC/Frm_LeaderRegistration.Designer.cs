@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_LeaderRegistration));
-            textBox1 = new TextBox();
+            Txt_ID = new TextBox();
             maskedTextBox1 = new MaskedTextBox();
             Grp_codigo = new GroupBox();
             Grp_dadosPessoais = new GroupBox();
@@ -85,12 +85,12 @@
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox1
+            // Txt_ID
             // 
-            textBox1.Location = new Point(6, 22);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(111, 23);
-            textBox1.TabIndex = 1;
+            Txt_ID.Location = new Point(6, 22);
+            Txt_ID.Name = "Txt_ID";
+            Txt_ID.Size = new Size(111, 23);
+            Txt_ID.TabIndex = 1;
             // 
             // maskedTextBox1
             // 
@@ -102,7 +102,7 @@
             // 
             // Grp_codigo
             // 
-            Grp_codigo.Controls.Add(textBox1);
+            Grp_codigo.Controls.Add(Txt_ID);
             Grp_codigo.Location = new Point(14, 28);
             Grp_codigo.Name = "Grp_codigo";
             Grp_codigo.Size = new Size(200, 62);
@@ -445,6 +445,7 @@
             novaToolStripButton.Name = "novaToolStripButton";
             novaToolStripButton.Size = new Size(23, 22);
             novaToolStripButton.Text = "&Nova";
+            novaToolStripButton.Click += novaToolStripButton_Click;
             // 
             // abrirToolStripButton
             // 
@@ -519,7 +520,6 @@
             ajudaToolStripButton.Size = new Size(23, 22);
             ajudaToolStripButton.Text = "Aju&da";
             // 
-            // 
             // Frm_LeaderRegistration
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -551,7 +551,7 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox Txt_ID;
         private MaskedTextBox maskedTextBox1;
         private GroupBox Grp_codigo;
         private GroupBox Grp_dadosPessoais;
