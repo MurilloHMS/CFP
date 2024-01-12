@@ -14,10 +14,66 @@ namespace ControleFinanceiroPessoal.Model
             //
             //Dados do cadastro
             //
-            [Required(ErrorMessage ="O ID é Obrigatório")]
+            
             [RegularExpression("([0-9]+)", ErrorMessage = "O ID deve conter apenas números.")]
             [StringLength(6, ErrorMessage ="O ID deve ter no máximo 6 caracteres.")]
             public string ID { get; set; }
+
+            [Required(ErrorMessage = "O Nome é Obrigatório")]
+            [StringLength(100, ErrorMessage = "O Nome deve ter no máximo 100 caracteres.")]
+            public string Nome { get; set; }
+
+            [Required(ErrorMessage = "O E-Mail é Obrigatório")]
+            [StringLength(100, ErrorMessage = "O E-mail deve ter no máximo 100 caracteres.")]
+            public string Email { get; set; }
+
+            [Required(ErrorMessage = "O Telefone é Obrigatório")]
+            [RegularExpression("([0-9]+)", ErrorMessage = "O Telefone deve conter apenas números.")]
+            [StringLength(11, ErrorMessage = "O Telefone deve ter no máximo 11 caracteres.")]
+            public string Telefone { get; set; }
+
+            [StringLength(8, ErrorMessage = "A Data de nascimento deve ter no máximo 8 caracteres.")]
+            public string DataDeNascimento { get; set; }
+
+            [Required(ErrorMessage = "A Pergunta se é cristão é Obrigatória")]
+            public string PerguntaECristao { get; set; }
+
+            [Required(ErrorMessage = "A Pergunta se frequenta igreja é Obrigatória")]
+            public string PerguntaFrequentaIgreja { get; set; }
+            //
+            //Dados Endereço
+            //
+
+            [RegularExpression("([0-9]+)", ErrorMessage = "O CEP deve conter apenas números.")]
+            [StringLength(8, ErrorMessage = "O CEP deve ter no máximo 8 caracteres.")]
+            public string CEP { get; set; }
+
+            [StringLength(100, ErrorMessage = "A Rua deve ter no máximo 100 caracteres.")]
+            public string Rua {  get; set; }
+
+            [RegularExpression("([0-9]+)", ErrorMessage = "O Número da residencia deve conter apenas números.")]
+            [StringLength(6, ErrorMessage = "O Número deve ter no máximo 6 caracteres.")]
+            public string Numero { get; set; }
+
+            [StringLength(100, ErrorMessage = "O Bairro deve ter no máximo 100 caracteres.")]
+            public string Bairro { get; set; }
+
+            [StringLength(100, ErrorMessage = "A Cidade deve ter no máximo 100 caracteres.")]
+            public string Cidade { get; set; }
+
+            [StringLength(2, ErrorMessage = "O UF deve ter no máximo 2 caracteres.")]
+            public string UF { get; set; }
+            [StringLength(100, ErrorMessage = "O Complemento deve ter no máximo 100 caracteres.")]
+            public string Complemento { get; set; }
+            //
+            //Dados Apoio Espiritual
+            //
+            public string Pergunta1 { get; set; }
+            public string Pergunta2 { get; set; }
+            public string Pergunta3 {  get; set; }
+            public string Pergunta4 { get; set; }
+            public string Pergunta5 { get; set; }
+            public string DescricaoMotivoOracao { get; set; }
 
 
             public void ValidaClasse () 
