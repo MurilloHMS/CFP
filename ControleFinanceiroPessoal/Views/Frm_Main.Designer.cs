@@ -103,6 +103,7 @@
             // 
             // cadastroDeLíderesToolStripMenuItem
             // 
+            cadastroDeLíderesToolStripMenuItem.Image = Properties.Resources.Add_User_Female;
             cadastroDeLíderesToolStripMenuItem.Name = "cadastroDeLíderesToolStripMenuItem";
             cadastroDeLíderesToolStripMenuItem.Size = new Size(199, 22);
             cadastroDeLíderesToolStripMenuItem.Text = "Cadastro de Líderes";
@@ -110,6 +111,7 @@
             // 
             // cadastroDeMembrosToolStripMenuItem
             // 
+            cadastroDeMembrosToolStripMenuItem.Image = Properties.Resources.Add_User_Female;
             cadastroDeMembrosToolStripMenuItem.Name = "cadastroDeMembrosToolStripMenuItem";
             cadastroDeMembrosToolStripMenuItem.Size = new Size(199, 22);
             cadastroDeMembrosToolStripMenuItem.Text = "Cadastro de Membros";

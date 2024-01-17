@@ -26,6 +26,8 @@ public partial class Frm_Main : Form
         cadastrarNovoUsuárioToolStripMenuItem.Enabled = tipo;
         configuraçõesBancoDeDadosToolStripMenuItem.Enabled = tipo;
         desconectarToolStripMenuItem.Enabled = tipo;
+        cadastroDeLíderesToolStripMenuItem.Enabled = tipo;
+        cadastroDeMembrosToolStripMenuItem.Enabled= tipo;
 
         switch (tipo)
         {

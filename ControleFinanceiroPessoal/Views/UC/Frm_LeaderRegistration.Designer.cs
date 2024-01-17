@@ -30,40 +30,40 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_LeaderRegistration));
             Txt_ID = new TextBox();
-            maskedTextBox1 = new MaskedTextBox();
+            MTxt_DataNascimento = new MaskedTextBox();
             Grp_codigo = new GroupBox();
             Grp_dadosPessoais = new GroupBox();
             groupBox3 = new GroupBox();
-            radioButton3 = new RadioButton();
-            radioButton4 = new RadioButton();
+            Rb_FreqIgrejaNao = new RadioButton();
+            Rb_FreqIgrejaSim = new RadioButton();
             groupBox2 = new GroupBox();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
+            Rb_CristaoNao = new RadioButton();
+            Rb_CristaoSim = new RadioButton();
             label4 = new Label();
-            maskedTextBox2 = new MaskedTextBox();
-            textBox3 = new TextBox();
+            MTxt_Telefone = new MaskedTextBox();
+            Txt_Email = new TextBox();
             label3 = new Label();
             label2 = new Label();
-            textBox2 = new TextBox();
+            Txt_Nome = new TextBox();
             label1 = new Label();
-            textBox9 = new TextBox();
+            Txt_Complemento = new TextBox();
             Lbl_Complemento = new Label();
-            textBox8 = new TextBox();
+            Txt_UF = new TextBox();
             Lbl_UF = new Label();
-            textBox7 = new TextBox();
+            Txt_Cidade = new TextBox();
             Lbl_Cidade = new Label();
-            textBox6 = new TextBox();
+            Txt_Bairro = new TextBox();
             Lbl_Bairro = new Label();
-            textBox5 = new TextBox();
+            Txt_Numero = new TextBox();
             Lbl_Numero = new Label();
-            textBox4 = new TextBox();
+            Txt_Logradouro = new TextBox();
             Lbl_Endereco = new Label();
-            button2 = new Button();
-            maskedTextBox5 = new MaskedTextBox();
+            MTxt_Cep = new MaskedTextBox();
             label7 = new Label();
             groupBox1 = new GroupBox();
+            Btn_SearchCep = new Button();
             groupBox4 = new GroupBox();
-            textBox10 = new TextBox();
+            Txt_Observacoes = new TextBox();
             checkedListBox1 = new CheckedListBox();
             toolStrip1 = new ToolStrip();
             novaToolStripButton = new ToolStripButton();
@@ -92,13 +92,13 @@
             Txt_ID.Size = new Size(111, 23);
             Txt_ID.TabIndex = 1;
             // 
-            // maskedTextBox1
+            // MTxt_DataNascimento
             // 
-            maskedTextBox1.Location = new Point(397, 37);
-            maskedTextBox1.Mask = "00/00/0000";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(133, 23);
-            maskedTextBox1.TabIndex = 3;
+            MTxt_DataNascimento.Location = new Point(397, 37);
+            MTxt_DataNascimento.Mask = "00/00/0000";
+            MTxt_DataNascimento.Name = "MTxt_DataNascimento";
+            MTxt_DataNascimento.Size = new Size(133, 23);
+            MTxt_DataNascimento.TabIndex = 3;
             // 
             // Grp_codigo
             // 
@@ -115,12 +115,12 @@
             Grp_dadosPessoais.Controls.Add(groupBox3);
             Grp_dadosPessoais.Controls.Add(groupBox2);
             Grp_dadosPessoais.Controls.Add(label4);
-            Grp_dadosPessoais.Controls.Add(maskedTextBox2);
-            Grp_dadosPessoais.Controls.Add(textBox3);
+            Grp_dadosPessoais.Controls.Add(MTxt_Telefone);
+            Grp_dadosPessoais.Controls.Add(Txt_Email);
             Grp_dadosPessoais.Controls.Add(label3);
             Grp_dadosPessoais.Controls.Add(label2);
-            Grp_dadosPessoais.Controls.Add(textBox2);
-            Grp_dadosPessoais.Controls.Add(maskedTextBox1);
+            Grp_dadosPessoais.Controls.Add(Txt_Nome);
+            Grp_dadosPessoais.Controls.Add(MTxt_DataNascimento);
             Grp_dadosPessoais.Controls.Add(label1);
             Grp_dadosPessoais.Location = new Point(14, 96);
             Grp_dadosPessoais.Name = "Grp_dadosPessoais";
@@ -131,8 +131,8 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(radioButton3);
-            groupBox3.Controls.Add(radioButton4);
+            groupBox3.Controls.Add(Rb_FreqIgrejaNao);
+            groupBox3.Controls.Add(Rb_FreqIgrejaSim);
             groupBox3.Location = new Point(615, 19);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(169, 85);
@@ -140,32 +140,32 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Frequenta alguma Igreja?";
             // 
-            // radioButton3
+            // Rb_FreqIgrejaNao
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(13, 47);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(47, 19);
-            radioButton3.TabIndex = 9;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Não";
-            radioButton3.UseVisualStyleBackColor = true;
+            Rb_FreqIgrejaNao.AutoSize = true;
+            Rb_FreqIgrejaNao.Location = new Point(13, 47);
+            Rb_FreqIgrejaNao.Name = "Rb_FreqIgrejaNao";
+            Rb_FreqIgrejaNao.Size = new Size(47, 19);
+            Rb_FreqIgrejaNao.TabIndex = 9;
+            Rb_FreqIgrejaNao.TabStop = true;
+            Rb_FreqIgrejaNao.Text = "Não";
+            Rb_FreqIgrejaNao.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // Rb_FreqIgrejaSim
             // 
-            radioButton4.AutoSize = true;
-            radioButton4.Location = new Point(13, 22);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(45, 19);
-            radioButton4.TabIndex = 8;
-            radioButton4.TabStop = true;
-            radioButton4.Text = "Sim";
-            radioButton4.UseVisualStyleBackColor = true;
+            Rb_FreqIgrejaSim.AutoSize = true;
+            Rb_FreqIgrejaSim.Location = new Point(13, 22);
+            Rb_FreqIgrejaSim.Name = "Rb_FreqIgrejaSim";
+            Rb_FreqIgrejaSim.Size = new Size(45, 19);
+            Rb_FreqIgrejaSim.TabIndex = 8;
+            Rb_FreqIgrejaSim.TabStop = true;
+            Rb_FreqIgrejaSim.Text = "Sim";
+            Rb_FreqIgrejaSim.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(radioButton2);
-            groupBox2.Controls.Add(radioButton1);
+            groupBox2.Controls.Add(Rb_CristaoNao);
+            groupBox2.Controls.Add(Rb_CristaoSim);
             groupBox2.Location = new Point(536, 19);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(73, 85);
@@ -173,27 +173,27 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "É Cristão?";
             // 
-            // radioButton2
+            // Rb_CristaoNao
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(12, 47);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(47, 19);
-            radioButton2.TabIndex = 7;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Não";
-            radioButton2.UseVisualStyleBackColor = true;
+            Rb_CristaoNao.AutoSize = true;
+            Rb_CristaoNao.Location = new Point(12, 47);
+            Rb_CristaoNao.Name = "Rb_CristaoNao";
+            Rb_CristaoNao.Size = new Size(47, 19);
+            Rb_CristaoNao.TabIndex = 7;
+            Rb_CristaoNao.TabStop = true;
+            Rb_CristaoNao.Text = "Não";
+            Rb_CristaoNao.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // Rb_CristaoSim
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(12, 22);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(45, 19);
-            radioButton1.TabIndex = 6;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Sim";
-            radioButton1.UseVisualStyleBackColor = true;
+            Rb_CristaoSim.AutoSize = true;
+            Rb_CristaoSim.Location = new Point(12, 22);
+            Rb_CristaoSim.Name = "Rb_CristaoSim";
+            Rb_CristaoSim.Size = new Size(45, 19);
+            Rb_CristaoSim.TabIndex = 6;
+            Rb_CristaoSim.TabStop = true;
+            Rb_CristaoSim.Text = "Sim";
+            Rb_CristaoSim.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -204,20 +204,20 @@
             label4.TabIndex = 11;
             label4.Text = "Telefone";
             // 
-            // maskedTextBox2
+            // MTxt_Telefone
             // 
-            maskedTextBox2.Location = new Point(393, 81);
-            maskedTextBox2.Mask = "(00) 0 0000-0000";
-            maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(133, 23);
-            maskedTextBox2.TabIndex = 5;
+            MTxt_Telefone.Location = new Point(393, 81);
+            MTxt_Telefone.Mask = "(00) 0 0000-0000";
+            MTxt_Telefone.Name = "MTxt_Telefone";
+            MTxt_Telefone.Size = new Size(133, 23);
+            MTxt_Telefone.TabIndex = 5;
             // 
-            // textBox3
+            // Txt_Email
             // 
-            textBox3.Location = new Point(6, 81);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(381, 23);
-            textBox3.TabIndex = 4;
+            Txt_Email.Location = new Point(6, 81);
+            Txt_Email.Name = "Txt_Email";
+            Txt_Email.Size = new Size(381, 23);
+            Txt_Email.TabIndex = 4;
             // 
             // label3
             // 
@@ -237,12 +237,12 @@
             label2.TabIndex = 7;
             label2.Text = "Nascimento";
             // 
-            // textBox2
+            // Txt_Nome
             // 
-            textBox2.Location = new Point(6, 37);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(381, 23);
-            textBox2.TabIndex = 2;
+            Txt_Nome.Location = new Point(6, 37);
+            Txt_Nome.Name = "Txt_Nome";
+            Txt_Nome.Size = new Size(381, 23);
+            Txt_Nome.TabIndex = 2;
             // 
             // label1
             // 
@@ -253,12 +253,12 @@
             label1.TabIndex = 5;
             label1.Text = "Nome";
             // 
-            // textBox9
+            // Txt_Complemento
             // 
-            textBox9.Location = new Point(627, 90);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(157, 23);
-            textBox9.TabIndex = 16;
+            Txt_Complemento.Location = new Point(627, 90);
+            Txt_Complemento.Name = "Txt_Complemento";
+            Txt_Complemento.Size = new Size(157, 23);
+            Txt_Complemento.TabIndex = 16;
             // 
             // Lbl_Complemento
             // 
@@ -269,12 +269,12 @@
             Lbl_Complemento.TabIndex = 48;
             Lbl_Complemento.Text = "Complemento (Opcional)";
             // 
-            // textBox8
+            // Txt_UF
             // 
-            textBox8.Location = new Point(571, 90);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(48, 23);
-            textBox8.TabIndex = 15;
+            Txt_UF.Location = new Point(571, 90);
+            Txt_UF.Name = "Txt_UF";
+            Txt_UF.Size = new Size(48, 23);
+            Txt_UF.TabIndex = 15;
             // 
             // Lbl_UF
             // 
@@ -285,12 +285,12 @@
             Lbl_UF.TabIndex = 46;
             Lbl_UF.Text = "UF";
             // 
-            // textBox7
+            // Txt_Cidade
             // 
-            textBox7.Location = new Point(393, 90);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(169, 23);
-            textBox7.TabIndex = 14;
+            Txt_Cidade.Location = new Point(393, 90);
+            Txt_Cidade.Name = "Txt_Cidade";
+            Txt_Cidade.Size = new Size(169, 23);
+            Txt_Cidade.TabIndex = 14;
             // 
             // Lbl_Cidade
             // 
@@ -301,12 +301,12 @@
             Lbl_Cidade.TabIndex = 44;
             Lbl_Cidade.Text = "Cidade";
             // 
-            // textBox6
+            // Txt_Bairro
             // 
-            textBox6.Location = new Point(6, 90);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(381, 23);
-            textBox6.TabIndex = 13;
+            Txt_Bairro.Location = new Point(6, 90);
+            Txt_Bairro.Name = "Txt_Bairro";
+            Txt_Bairro.Size = new Size(381, 23);
+            Txt_Bairro.TabIndex = 13;
             // 
             // Lbl_Bairro
             // 
@@ -317,12 +317,12 @@
             Lbl_Bairro.TabIndex = 42;
             Lbl_Bairro.Text = "Bairro";
             // 
-            // textBox5
+            // Txt_Numero
             // 
-            textBox5.Location = new Point(628, 46);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(156, 23);
-            textBox5.TabIndex = 12;
+            Txt_Numero.Location = new Point(628, 46);
+            Txt_Numero.Name = "Txt_Numero";
+            Txt_Numero.Size = new Size(156, 23);
+            Txt_Numero.TabIndex = 12;
             // 
             // Lbl_Numero
             // 
@@ -333,12 +333,12 @@
             Lbl_Numero.TabIndex = 40;
             Lbl_Numero.Text = "Número";
             // 
-            // textBox4
+            // Txt_Logradouro
             // 
-            textBox4.Location = new Point(151, 46);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(455, 23);
-            textBox4.TabIndex = 11;
+            Txt_Logradouro.Location = new Point(151, 46);
+            Txt_Logradouro.Name = "Txt_Logradouro";
+            Txt_Logradouro.Size = new Size(455, 23);
+            Txt_Logradouro.TabIndex = 11;
             // 
             // Lbl_Endereco
             // 
@@ -349,21 +349,14 @@
             Lbl_Endereco.TabIndex = 38;
             Lbl_Endereco.Text = "Rua";
             // 
-            // button2
+            // MTxt_Cep
             // 
-            button2.Location = new Point(112, 46);
-            button2.Name = "button2";
-            button2.Size = new Size(33, 23);
-            button2.TabIndex = 37;
-            button2.Text = "...";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // maskedTextBox5
-            // 
-            maskedTextBox5.Location = new Point(6, 46);
-            maskedTextBox5.Name = "maskedTextBox5";
-            maskedTextBox5.Size = new Size(100, 23);
-            maskedTextBox5.TabIndex = 10;
+            MTxt_Cep.Location = new Point(6, 46);
+            MTxt_Cep.Mask = "00000-000";
+            MTxt_Cep.Name = "MTxt_Cep";
+            MTxt_Cep.Size = new Size(85, 23);
+            MTxt_Cep.TabIndex = 10;
+            MTxt_Cep.Leave += MTxt_Cep_Leave;
             // 
             // label7
             // 
@@ -376,21 +369,21 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(Btn_SearchCep);
             groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(maskedTextBox5);
-            groupBox1.Controls.Add(textBox9);
-            groupBox1.Controls.Add(button2);
+            groupBox1.Controls.Add(MTxt_Cep);
+            groupBox1.Controls.Add(Txt_Complemento);
             groupBox1.Controls.Add(Lbl_Complemento);
             groupBox1.Controls.Add(Lbl_Endereco);
-            groupBox1.Controls.Add(textBox8);
-            groupBox1.Controls.Add(textBox4);
+            groupBox1.Controls.Add(Txt_UF);
+            groupBox1.Controls.Add(Txt_Logradouro);
             groupBox1.Controls.Add(Lbl_UF);
             groupBox1.Controls.Add(Lbl_Numero);
-            groupBox1.Controls.Add(textBox7);
-            groupBox1.Controls.Add(textBox5);
+            groupBox1.Controls.Add(Txt_Cidade);
+            groupBox1.Controls.Add(Txt_Numero);
             groupBox1.Controls.Add(Lbl_Cidade);
             groupBox1.Controls.Add(Lbl_Bairro);
-            groupBox1.Controls.Add(textBox6);
+            groupBox1.Controls.Add(Txt_Bairro);
             groupBox1.Location = new Point(14, 227);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(802, 138);
@@ -398,9 +391,22 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Endereço";
             // 
+            // Btn_SearchCep
+            // 
+            Btn_SearchCep.Cursor = Cursors.Hand;
+            Btn_SearchCep.FlatAppearance.BorderSize = 0;
+            Btn_SearchCep.FlatStyle = FlatStyle.Flat;
+            Btn_SearchCep.Image = Properties.Resources.Search;
+            Btn_SearchCep.Location = new Point(97, 28);
+            Btn_SearchCep.Name = "Btn_SearchCep";
+            Btn_SearchCep.Size = new Size(48, 44);
+            Btn_SearchCep.TabIndex = 49;
+            Btn_SearchCep.UseVisualStyleBackColor = true;
+            Btn_SearchCep.Click += Btn_SearchCep_Click;
+            // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(textBox10);
+            groupBox4.Controls.Add(Txt_Observacoes);
             groupBox4.Controls.Add(checkedListBox1);
             groupBox4.Location = new Point(14, 371);
             groupBox4.Name = "groupBox4";
@@ -409,13 +415,13 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Apoio Espiritual";
             // 
-            // textBox10
+            // Txt_Observacoes
             // 
-            textBox10.Location = new Point(6, 117);
-            textBox10.Multiline = true;
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(790, 47);
-            textBox10.TabIndex = 0;
+            Txt_Observacoes.Location = new Point(6, 117);
+            Txt_Observacoes.Multiline = true;
+            Txt_Observacoes.Name = "Txt_Observacoes";
+            Txt_Observacoes.Size = new Size(790, 47);
+            Txt_Observacoes.TabIndex = 0;
             // 
             // checkedListBox1
             // 
@@ -473,6 +479,7 @@
             ApagarToolStripButton.Name = "ApagarToolStripButton";
             ApagarToolStripButton.Size = new Size(23, 22);
             ApagarToolStripButton.Text = "&Apagar";
+            ApagarToolStripButton.Click += ApagarToolStripButton_Click;
             // 
             // toolStripSeparator
             // 
@@ -552,41 +559,40 @@
         #endregion
 
         private TextBox Txt_ID;
-        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox MTxt_DataNascimento;
         private GroupBox Grp_codigo;
         private GroupBox Grp_dadosPessoais;
         private Label label1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox Txt_Nome;
+        private TextBox Txt_Email;
         private Label label3;
         private Label label2;
-        private TextBox textBox9;
+        private TextBox Txt_Complemento;
         private Label Lbl_Complemento;
-        private TextBox textBox8;
+        private TextBox Txt_UF;
         private Label Lbl_UF;
-        private TextBox textBox7;
+        private TextBox Txt_Cidade;
         private Label Lbl_Cidade;
-        private TextBox textBox6;
+        private TextBox Txt_Bairro;
         private Label Lbl_Bairro;
-        private TextBox textBox5;
+        private TextBox Txt_Numero;
         private Label Lbl_Numero;
-        private TextBox textBox4;
+        private TextBox Txt_Logradouro;
         private Label Lbl_Endereco;
-        private Button button2;
-        private MaskedTextBox maskedTextBox5;
+        private MaskedTextBox MTxt_Cep;
         private Label label7;
         private GroupBox groupBox2;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
+        private RadioButton Rb_CristaoNao;
+        private RadioButton Rb_CristaoSim;
         private Label label4;
-        private MaskedTextBox maskedTextBox2;
+        private MaskedTextBox MTxt_Telefone;
         private GroupBox groupBox1;
         private GroupBox groupBox3;
-        private RadioButton radioButton3;
-        private RadioButton radioButton4;
+        private RadioButton Rb_FreqIgrejaNao;
+        private RadioButton Rb_FreqIgrejaSim;
         private GroupBox groupBox4;
         private CheckedListBox checkedListBox1;
-        private TextBox textBox10;
+        private TextBox Txt_Observacoes;
         private ToolStrip toolStrip1;
         private ToolStripButton novaToolStripButton;
         private ToolStripButton abrirToolStripButton;
@@ -598,5 +604,6 @@
         private ToolStripButton colarToolStripButton;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton ajudaToolStripButton;
+        private Button Btn_SearchCep;
     }
 }

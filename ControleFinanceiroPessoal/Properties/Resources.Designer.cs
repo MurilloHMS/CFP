@@ -71,12 +71,22 @@ namespace ControleFinanceiroPessoal.Properties {
         }
         
         /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Icon semelhante a (Ícone).
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Icon Add_User_Male {
+        internal static System.Drawing.Bitmap Add_User_Female {
+            get {
+                object obj = ResourceManager.GetObject("Add User Female", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Add_User_Male {
             get {
                 object obj = ResourceManager.GetObject("Add User Male", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -166,6 +176,16 @@ namespace ControleFinanceiroPessoal.Properties {
         internal static System.Drawing.Bitmap Save {
             get {
                 object obj = ResourceManager.GetObject("Save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Search {
+            get {
+                object obj = ResourceManager.GetObject("Search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

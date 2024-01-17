@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace ControleFinanceiroPessoal.Model
 {
@@ -28,11 +29,10 @@ namespace ControleFinanceiroPessoal.Model
             public string Email { get; set; }
 
             [Required(ErrorMessage = "O Telefone é Obrigatório")]
-            [RegularExpression("([0-9]+)", ErrorMessage = "O Telefone deve conter apenas números.")]
-            [StringLength(11, ErrorMessage = "O Telefone deve ter no máximo 11 caracteres.")]
+            //[RegularExpression("([0-9]+)", ErrorMessage = "O Telefone deve conter apenas números.")]
+            //[StringLength(11, ErrorMessage = "O Telefone deve ter no máximo 11 caracteres.")]
             public string Telefone { get; set; }
 
-            [StringLength(8, ErrorMessage = "A Data de nascimento deve ter no máximo 8 caracteres.")]
             public string DataDeNascimento { get; set; }
 
             [Required(ErrorMessage = "A Pergunta se é cristão é Obrigatória")]
@@ -44,8 +44,8 @@ namespace ControleFinanceiroPessoal.Model
             //Dados Endereço
             //
 
-            [RegularExpression("([0-9]+)", ErrorMessage = "O CEP deve conter apenas números.")]
-            [StringLength(8, ErrorMessage = "O CEP deve ter no máximo 8 caracteres.")]
+            //[RegularExpression("([0-9]+)", ErrorMessage = "O CEP deve conter apenas números.")]
+            //[StringLength(8, ErrorMessage = "O CEP deve ter no máximo 8 caracteres.")]
             public string CEP { get; set; }
 
             [StringLength(100, ErrorMessage = "A Rua deve ter no máximo 100 caracteres.")]
@@ -93,6 +93,24 @@ namespace ControleFinanceiroPessoal.Model
                 }
             }
         }
+        
+
+        public class List
+        {
+            public List<Unit> ListUnit { get; set; }
+
+        }
+
+        public static Unit DesSerializedClassUnit(string vJason)
+        {
+            return JsonConvert.DeserializeObject<Unit>(vJason);
+        }
+
+        public static string SerializedClassUnit(Unit unit)
+        {
+            return JsonConvert.SerializeObject(unit);
+        }
+
 
     }
 }
