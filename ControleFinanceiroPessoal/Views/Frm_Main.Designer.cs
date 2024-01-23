@@ -44,6 +44,9 @@
             configuraçõesBancoDeDadosToolStripMenuItem = new ToolStripMenuItem();
             tbc_Finance = new TabControl();
             Iml_Menu = new ImageList(components);
+            organizarDiretóriosToolStripMenuItem = new ToolStripMenuItem();
+            informarDiretórioToolStripMenuItem = new ToolStripMenuItem();
+            salvarDadosNoMesmoDiretórioToolStripMenuItem = new ToolStripMenuItem();
             Mns_Finance.SuspendLayout();
             SuspendLayout();
             // 
@@ -67,7 +70,7 @@
             // 
             conectarToolStripMenuItem.Image = (Image)resources.GetObject("conectarToolStripMenuItem.Image");
             conectarToolStripMenuItem.Name = "conectarToolStripMenuItem";
-            conectarToolStripMenuItem.Size = new Size(139, 22);
+            conectarToolStripMenuItem.Size = new Size(180, 22);
             conectarToolStripMenuItem.Text = "Conectar";
             conectarToolStripMenuItem.Click += conectarToolStripMenuItem_Click;
             // 
@@ -75,14 +78,14 @@
             // 
             desconectarToolStripMenuItem.Image = (Image)resources.GetObject("desconectarToolStripMenuItem.Image");
             desconectarToolStripMenuItem.Name = "desconectarToolStripMenuItem";
-            desconectarToolStripMenuItem.Size = new Size(139, 22);
+            desconectarToolStripMenuItem.Size = new Size(180, 22);
             desconectarToolStripMenuItem.Text = "Desconectar";
             desconectarToolStripMenuItem.Click += desconectarToolStripMenuItem_Click;
             // 
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(139, 22);
+            sairToolStripMenuItem.Size = new Size(180, 22);
             sairToolStripMenuItem.Text = "Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
@@ -125,7 +128,7 @@
             // 
             // ferramentasToolStripMenuItem
             // 
-            ferramentasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { configuraçõesBancoDeDadosToolStripMenuItem });
+            ferramentasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { configuraçõesBancoDeDadosToolStripMenuItem, organizarDiretóriosToolStripMenuItem });
             ferramentasToolStripMenuItem.Name = "ferramentasToolStripMenuItem";
             ferramentasToolStripMenuItem.Size = new Size(84, 20);
             ferramentasToolStripMenuItem.Text = "Ferramentas";
@@ -156,6 +159,26 @@
             Iml_Menu.TransparentColor = Color.Transparent;
             Iml_Menu.Images.SetKeyName(0, "Database Administrator_1.ico");
             Iml_Menu.Images.SetKeyName(1, "Add User Male.ico");
+            // 
+            // organizarDiretóriosToolStripMenuItem
+            // 
+            organizarDiretóriosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { informarDiretórioToolStripMenuItem, salvarDadosNoMesmoDiretórioToolStripMenuItem });
+            organizarDiretóriosToolStripMenuItem.Name = "organizarDiretóriosToolStripMenuItem";
+            organizarDiretóriosToolStripMenuItem.Size = new Size(239, 22);
+            organizarDiretóriosToolStripMenuItem.Text = "Organizar Diretórios";
+            // 
+            // informarDiretórioToolStripMenuItem
+            // 
+            informarDiretórioToolStripMenuItem.Name = "informarDiretórioToolStripMenuItem";
+            informarDiretórioToolStripMenuItem.Size = new Size(248, 22);
+            informarDiretórioToolStripMenuItem.Text = "Informar Diretório";
+            informarDiretórioToolStripMenuItem.Click += informarDiretórioToolStripMenuItem_Click;
+            // 
+            // salvarDadosNoMesmoDiretórioToolStripMenuItem
+            // 
+            salvarDadosNoMesmoDiretórioToolStripMenuItem.Name = "salvarDadosNoMesmoDiretórioToolStripMenuItem";
+            salvarDadosNoMesmoDiretórioToolStripMenuItem.Size = new Size(248, 22);
+            salvarDadosNoMesmoDiretórioToolStripMenuItem.Text = "Salvar dados no mesmo diretório";
             // 
             // Frm_Main
             // 
@@ -189,5 +212,8 @@
         private ToolStripMenuItem desconectarToolStripMenuItem;
         private ToolStripMenuItem cadastroDeLíderesToolStripMenuItem;
         private ToolStripMenuItem cadastroDeMembrosToolStripMenuItem;
+        private ToolStripMenuItem organizarDiretóriosToolStripMenuItem;
+        private ToolStripMenuItem informarDiretórioToolStripMenuItem;
+        private ToolStripMenuItem salvarDadosNoMesmoDiretórioToolStripMenuItem;
     }
 }

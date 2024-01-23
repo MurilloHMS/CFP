@@ -27,7 +27,8 @@ public partial class Frm_Main : Form
         configuraçõesBancoDeDadosToolStripMenuItem.Enabled = tipo;
         desconectarToolStripMenuItem.Enabled = tipo;
         cadastroDeLíderesToolStripMenuItem.Enabled = tipo;
-        cadastroDeMembrosToolStripMenuItem.Enabled= tipo;
+        cadastroDeMembrosToolStripMenuItem.Enabled = tipo;
+        organizarDiretóriosToolStripMenuItem.Enabled = tipo;
 
         switch (tipo)
         {
@@ -181,12 +182,23 @@ public partial class Frm_Main : Form
 
     private void cadastroDeMembrosToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        Frm_LeaderRegistration frm  = new Frm_LeaderRegistration();
+        Frm_LeaderRegistration frm = new Frm_LeaderRegistration();
         frm.Dock = DockStyle.Fill;
         TabPage tb = new TabPage();
         tb.Name = "Cadastro de Membros";
         tb.Text = "Cadastro de Membros";
         tb.ImageIndex = 1;
+        tb.Controls.Add(frm);
+        tbc_Finance.TabPages.Add(tb);
+    }
+
+    private void informarDiretórioToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        Frm_OrganizeDirectories frm = new Frm_OrganizeDirectories();
+        frm.Dock = DockStyle.Fill;
+        TabPage tb = new TabPage();
+        tb.Name = "Organizar Diretórios";
+        tb.Text = "Organizar Diretórios";
         tb.Controls.Add(frm);
         tbc_Finance.TabPages.Add(tb);
     }
