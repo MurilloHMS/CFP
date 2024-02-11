@@ -6,10 +6,14 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>logo-png-branco.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Content Include="logo-png-branco.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Templates\" />
   </ItemGroup>
 

@@ -42,11 +42,12 @@
             exibirToolStripMenuItem = new ToolStripMenuItem();
             ferramentasToolStripMenuItem = new ToolStripMenuItem();
             configuraçõesBancoDeDadosToolStripMenuItem = new ToolStripMenuItem();
-            tbc_Finance = new TabControl();
-            Iml_Menu = new ImageList(components);
             organizarDiretóriosToolStripMenuItem = new ToolStripMenuItem();
             informarDiretórioToolStripMenuItem = new ToolStripMenuItem();
             salvarDadosNoMesmoDiretórioToolStripMenuItem = new ToolStripMenuItem();
+            tbc_Finance = new TabControl();
+            Iml_Menu = new ImageList(components);
+            recuperaçãoDeAcessoToolStripMenuItem = new ToolStripMenuItem();
             Mns_Finance.SuspendLayout();
             SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             // 
             conectarToolStripMenuItem.Image = (Image)resources.GetObject("conectarToolStripMenuItem.Image");
             conectarToolStripMenuItem.Name = "conectarToolStripMenuItem";
-            conectarToolStripMenuItem.Size = new Size(180, 22);
+            conectarToolStripMenuItem.Size = new Size(139, 22);
             conectarToolStripMenuItem.Text = "Conectar";
             conectarToolStripMenuItem.Click += conectarToolStripMenuItem_Click;
             // 
@@ -78,14 +79,14 @@
             // 
             desconectarToolStripMenuItem.Image = (Image)resources.GetObject("desconectarToolStripMenuItem.Image");
             desconectarToolStripMenuItem.Name = "desconectarToolStripMenuItem";
-            desconectarToolStripMenuItem.Size = new Size(180, 22);
+            desconectarToolStripMenuItem.Size = new Size(139, 22);
             desconectarToolStripMenuItem.Text = "Desconectar";
             desconectarToolStripMenuItem.Click += desconectarToolStripMenuItem_Click;
             // 
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(180, 22);
+            sairToolStripMenuItem.Size = new Size(139, 22);
             sairToolStripMenuItem.Text = "Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
@@ -128,7 +129,7 @@
             // 
             // ferramentasToolStripMenuItem
             // 
-            ferramentasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { configuraçõesBancoDeDadosToolStripMenuItem, organizarDiretóriosToolStripMenuItem });
+            ferramentasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { configuraçõesBancoDeDadosToolStripMenuItem, organizarDiretóriosToolStripMenuItem, recuperaçãoDeAcessoToolStripMenuItem });
             ferramentasToolStripMenuItem.Name = "ferramentasToolStripMenuItem";
             ferramentasToolStripMenuItem.Size = new Size(84, 20);
             ferramentasToolStripMenuItem.Text = "Ferramentas";
@@ -140,25 +141,6 @@
             configuraçõesBancoDeDadosToolStripMenuItem.Size = new Size(239, 22);
             configuraçõesBancoDeDadosToolStripMenuItem.Text = "Configurações Banco de Dados";
             configuraçõesBancoDeDadosToolStripMenuItem.Click += configuraçõesBancoDeDadosToolStripMenuItem_Click;
-            // 
-            // tbc_Finance
-            // 
-            tbc_Finance.Dock = DockStyle.Fill;
-            tbc_Finance.ImageList = Iml_Menu;
-            tbc_Finance.Location = new Point(0, 24);
-            tbc_Finance.Name = "tbc_Finance";
-            tbc_Finance.SelectedIndex = 0;
-            tbc_Finance.Size = new Size(834, 576);
-            tbc_Finance.TabIndex = 1;
-            tbc_Finance.MouseDown += tbc_Finance_MouseDown;
-            // 
-            // Iml_Menu
-            // 
-            Iml_Menu.ColorDepth = ColorDepth.Depth32Bit;
-            Iml_Menu.ImageStream = (ImageListStreamer)resources.GetObject("Iml_Menu.ImageStream");
-            Iml_Menu.TransparentColor = Color.Transparent;
-            Iml_Menu.Images.SetKeyName(0, "Database Administrator_1.ico");
-            Iml_Menu.Images.SetKeyName(1, "Add User Male.ico");
             // 
             // organizarDiretóriosToolStripMenuItem
             // 
@@ -179,6 +161,32 @@
             salvarDadosNoMesmoDiretórioToolStripMenuItem.Name = "salvarDadosNoMesmoDiretórioToolStripMenuItem";
             salvarDadosNoMesmoDiretórioToolStripMenuItem.Size = new Size(248, 22);
             salvarDadosNoMesmoDiretórioToolStripMenuItem.Text = "Salvar dados no mesmo diretório";
+            // 
+            // tbc_Finance
+            // 
+            tbc_Finance.Dock = DockStyle.Fill;
+            tbc_Finance.ImageList = Iml_Menu;
+            tbc_Finance.Location = new Point(0, 24);
+            tbc_Finance.Name = "tbc_Finance";
+            tbc_Finance.SelectedIndex = 0;
+            tbc_Finance.Size = new Size(834, 576);
+            tbc_Finance.TabIndex = 1;
+            tbc_Finance.MouseDown += tbc_Finance_MouseDown;
+            // 
+            // Iml_Menu
+            // 
+            Iml_Menu.ColorDepth = ColorDepth.Depth32Bit;
+            Iml_Menu.ImageStream = (ImageListStreamer)resources.GetObject("Iml_Menu.ImageStream");
+            Iml_Menu.TransparentColor = Color.Transparent;
+            Iml_Menu.Images.SetKeyName(0, "Database Administrator_1.ico");
+            Iml_Menu.Images.SetKeyName(1, "Add User Male.ico");
+            // 
+            // recuperaçãoDeAcessoToolStripMenuItem
+            // 
+            recuperaçãoDeAcessoToolStripMenuItem.Name = "recuperaçãoDeAcessoToolStripMenuItem";
+            recuperaçãoDeAcessoToolStripMenuItem.Size = new Size(239, 22);
+            recuperaçãoDeAcessoToolStripMenuItem.Text = "Recuperação de Acesso";
+            recuperaçãoDeAcessoToolStripMenuItem.Click += recuperaçãoDeAcessoToolStripMenuItem_Click;
             // 
             // Frm_Main
             // 
@@ -215,5 +223,6 @@
         private ToolStripMenuItem organizarDiretóriosToolStripMenuItem;
         private ToolStripMenuItem informarDiretórioToolStripMenuItem;
         private ToolStripMenuItem salvarDadosNoMesmoDiretórioToolStripMenuItem;
+        private ToolStripMenuItem recuperaçãoDeAcessoToolStripMenuItem;
     }
 }

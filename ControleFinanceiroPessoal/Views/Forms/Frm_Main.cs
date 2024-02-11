@@ -67,7 +67,7 @@ public partial class Frm_Main : Form
             string senha = frm_Login.senha;
             string usuario = frm_Login.login;
 
-            if (Validations.validaSenhaLogin(senha) == true)
+            if (Validations.validaSenhaLogin(usuario, senha))
             {
                 AlteraOpcoesMenu(true);
 
@@ -199,6 +199,16 @@ public partial class Frm_Main : Form
         TabPage tb = new TabPage();
         tb.Name = "Organizar Diretórios";
         tb.Text = "Organizar Diretórios";
+        tb.Controls.Add(frm);
+        tbc_Finance.TabPages.Add(tb);
+    }
+
+    private void recuperaçãoDeAcessoToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        Frm_Recuperacao frm = new Frm_Recuperacao();
+        frm.Dock = DockStyle.Fill;
+        TabPage tb = new TabPage();
+        tb.Name = "Recuperação";
         tb.Controls.Add(frm);
         tbc_Finance.TabPages.Add(tb);
     }

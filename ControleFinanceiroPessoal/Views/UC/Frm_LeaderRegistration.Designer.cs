@@ -32,6 +32,7 @@
             Txt_ID = new TextBox();
             MTxt_DataNascimento = new MaskedTextBox();
             Grp_codigo = new GroupBox();
+            Btn_BuscaMembros = new Button();
             Grp_dadosPessoais = new GroupBox();
             groupBox3 = new GroupBox();
             Rb_FreqIgrejaNao = new RadioButton();
@@ -62,26 +63,19 @@
             label7 = new Label();
             groupBox1 = new GroupBox();
             Btn_SearchCep = new Button();
-            groupBox4 = new GroupBox();
-            Txt_Observacoes = new TextBox();
-            checkedListBox1 = new CheckedListBox();
             toolStrip1 = new ToolStrip();
             novaToolStripButton = new ToolStripButton();
             abrirToolStripButton = new ToolStripButton();
-            salvarToolStripButton = new ToolStripButton();
             ApagarToolStripButton = new ToolStripButton();
-            toolStripSeparator = new ToolStripSeparator();
+            salvarToolStripButton = new ToolStripButton();
             recortarToolStripButton = new ToolStripButton();
-            copiarToolStripButton = new ToolStripButton();
-            colarToolStripButton = new ToolStripButton();
-            toolStripSeparator1 = new ToolStripSeparator();
+            toolStripSeparator = new ToolStripSeparator();
             ajudaToolStripButton = new ToolStripButton();
             Grp_codigo.SuspendLayout();
             Grp_dadosPessoais.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
-            groupBox4.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -102,6 +96,7 @@
             // 
             // Grp_codigo
             // 
+            Grp_codigo.Controls.Add(Btn_BuscaMembros);
             Grp_codigo.Controls.Add(Txt_ID);
             Grp_codigo.Location = new Point(14, 28);
             Grp_codigo.Name = "Grp_codigo";
@@ -109,6 +104,19 @@
             Grp_codigo.TabIndex = 3;
             Grp_codigo.TabStop = false;
             Grp_codigo.Text = "Código";
+            // 
+            // Btn_BuscaMembros
+            // 
+            Btn_BuscaMembros.Cursor = Cursors.Hand;
+            Btn_BuscaMembros.FlatAppearance.BorderSize = 0;
+            Btn_BuscaMembros.FlatStyle = FlatStyle.Flat;
+            Btn_BuscaMembros.Image = Properties.Resources.Search;
+            Btn_BuscaMembros.Location = new Point(130, 10);
+            Btn_BuscaMembros.Name = "Btn_BuscaMembros";
+            Btn_BuscaMembros.Size = new Size(48, 44);
+            Btn_BuscaMembros.TabIndex = 50;
+            Btn_BuscaMembros.UseVisualStyleBackColor = true;
+            Btn_BuscaMembros.Click += Btn_BuscaMembros_Click;
             // 
             // Grp_dadosPessoais
             // 
@@ -356,7 +364,6 @@
             MTxt_Cep.Name = "MTxt_Cep";
             MTxt_Cep.Size = new Size(85, 23);
             MTxt_Cep.TabIndex = 10;
-            MTxt_Cep.Leave += MTxt_Cep_Leave;
             // 
             // label7
             // 
@@ -404,39 +411,9 @@
             Btn_SearchCep.UseVisualStyleBackColor = true;
             Btn_SearchCep.Click += Btn_SearchCep_Click;
             // 
-            // groupBox4
-            // 
-            groupBox4.Controls.Add(Txt_Observacoes);
-            groupBox4.Controls.Add(checkedListBox1);
-            groupBox4.Location = new Point(14, 371);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(802, 170);
-            groupBox4.TabIndex = 52;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Apoio Espiritual";
-            // 
-            // Txt_Observacoes
-            // 
-            Txt_Observacoes.Location = new Point(6, 117);
-            Txt_Observacoes.Multiline = true;
-            Txt_Observacoes.Name = "Txt_Observacoes";
-            Txt_Observacoes.Size = new Size(790, 47);
-            Txt_Observacoes.TabIndex = 0;
-            // 
-            // checkedListBox1
-            // 
-            checkedListBox1.BackColor = SystemColors.Menu;
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Items.AddRange(new object[] { "Quero receber Jesus como meu único e suficiente Salvador.", "Quero conhecer melhor a bíblia e gostaria de ajuda.", "Gostaria de uma visita para uma oração na minha casa.", "Gostaria de conhecer melhor a Kingdom", "Gostaria de pedir oração (especifique o motivo abaixo)" });
-            checkedListBox1.Location = new Point(6, 22);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(790, 94);
-            checkedListBox1.TabIndex = 0;
-            checkedListBox1.SelectedIndexChanged += checkedListBox1_SelectedIndexChanged;
-            // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { novaToolStripButton, abrirToolStripButton, salvarToolStripButton, ApagarToolStripButton, toolStripSeparator, recortarToolStripButton, copiarToolStripButton, colarToolStripButton, toolStripSeparator1, ajudaToolStripButton });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { novaToolStripButton, abrirToolStripButton, ApagarToolStripButton, salvarToolStripButton, recortarToolStripButton, toolStripSeparator, ajudaToolStripButton });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(830, 25);
@@ -460,16 +437,8 @@
             abrirToolStripButton.ImageTransparentColor = Color.Magenta;
             abrirToolStripButton.Name = "abrirToolStripButton";
             abrirToolStripButton.Size = new Size(23, 22);
-            abrirToolStripButton.Text = "&Abrir";
-            // 
-            // salvarToolStripButton
-            // 
-            salvarToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            salvarToolStripButton.Image = Properties.Resources.Save;
-            salvarToolStripButton.ImageTransparentColor = Color.Magenta;
-            salvarToolStripButton.Name = "salvarToolStripButton";
-            salvarToolStripButton.Size = new Size(23, 22);
-            salvarToolStripButton.Text = "&Salvar";
+            abrirToolStripButton.Text = "&Buscar";
+            abrirToolStripButton.Click += abrirToolStripButton_Click;
             // 
             // ApagarToolStripButton
             // 
@@ -481,42 +450,30 @@
             ApagarToolStripButton.Text = "&Apagar";
             ApagarToolStripButton.Click += ApagarToolStripButton_Click;
             // 
-            // toolStripSeparator
+            // salvarToolStripButton
             // 
-            toolStripSeparator.Name = "toolStripSeparator";
-            toolStripSeparator.Size = new Size(6, 25);
+            salvarToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            salvarToolStripButton.Image = Properties.Resources.Save;
+            salvarToolStripButton.ImageTransparentColor = Color.Magenta;
+            salvarToolStripButton.Name = "salvarToolStripButton";
+            salvarToolStripButton.Size = new Size(23, 22);
+            salvarToolStripButton.Text = "&Salvar";
+            salvarToolStripButton.Click += salvarToolStripButton_Click;
             // 
             // recortarToolStripButton
             // 
             recortarToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            recortarToolStripButton.Image = (Image)resources.GetObject("recortarToolStripButton.Image");
+            recortarToolStripButton.Image = Properties.Resources.Delete_2;
             recortarToolStripButton.ImageTransparentColor = Color.Magenta;
             recortarToolStripButton.Name = "recortarToolStripButton";
             recortarToolStripButton.Size = new Size(23, 22);
-            recortarToolStripButton.Text = "R&ecortar";
+            recortarToolStripButton.Text = "&Deletar";
+            recortarToolStripButton.Click += recortarToolStripButton_Click;
             // 
-            // copiarToolStripButton
+            // toolStripSeparator
             // 
-            copiarToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            copiarToolStripButton.Image = (Image)resources.GetObject("copiarToolStripButton.Image");
-            copiarToolStripButton.ImageTransparentColor = Color.Magenta;
-            copiarToolStripButton.Name = "copiarToolStripButton";
-            copiarToolStripButton.Size = new Size(23, 22);
-            copiarToolStripButton.Text = "&Copiar";
-            // 
-            // colarToolStripButton
-            // 
-            colarToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            colarToolStripButton.Image = (Image)resources.GetObject("colarToolStripButton.Image");
-            colarToolStripButton.ImageTransparentColor = Color.Magenta;
-            colarToolStripButton.Name = "colarToolStripButton";
-            colarToolStripButton.Size = new Size(23, 22);
-            colarToolStripButton.Text = "&Colar";
-            // 
-            // toolStripSeparator1
-            // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 25);
+            toolStripSeparator.Name = "toolStripSeparator";
+            toolStripSeparator.Size = new Size(6, 25);
             // 
             // ajudaToolStripButton
             // 
@@ -532,12 +489,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(toolStrip1);
-            Controls.Add(groupBox4);
             Controls.Add(groupBox1);
             Controls.Add(Grp_dadosPessoais);
             Controls.Add(Grp_codigo);
             Name = "Frm_LeaderRegistration";
-            Size = new Size(830, 559);
+            Size = new Size(830, 406);
             Grp_codigo.ResumeLayout(false);
             Grp_codigo.PerformLayout();
             Grp_dadosPessoais.ResumeLayout(false);
@@ -548,8 +504,6 @@
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ResumeLayout(false);
@@ -590,9 +544,6 @@
         private GroupBox groupBox3;
         private RadioButton Rb_FreqIgrejaNao;
         private RadioButton Rb_FreqIgrejaSim;
-        private GroupBox groupBox4;
-        private CheckedListBox checkedListBox1;
-        private TextBox Txt_Observacoes;
         private ToolStrip toolStrip1;
         private ToolStripButton novaToolStripButton;
         private ToolStripButton abrirToolStripButton;
@@ -600,10 +551,8 @@
         private ToolStripButton ApagarToolStripButton;
         private ToolStripSeparator toolStripSeparator;
         private ToolStripButton recortarToolStripButton;
-        private ToolStripButton copiarToolStripButton;
-        private ToolStripButton colarToolStripButton;
-        private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton ajudaToolStripButton;
         private Button Btn_SearchCep;
+        private Button Btn_BuscaMembros;
     }
 }

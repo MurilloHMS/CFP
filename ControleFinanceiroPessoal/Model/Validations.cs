@@ -9,9 +9,9 @@ namespace ControleFinanceiroPessoal.Model
 {
     internal class Validations
     {
-        public static  bool validaSenhaLogin(string senha)
-        {
-            if (senha == "Curso") 
+        public static  bool validaSenhaLogin(string usuario, string senha)
+        { 
+            if ((senha == "ceunaterra") && (usuario == "kingdom")) 
             {
                 return true;
             }

@@ -65,15 +65,6 @@ namespace ControleFinanceiroPessoal.Model
             public string UF { get; set; }
             [StringLength(100, ErrorMessage = "O Complemento deve ter no máximo 100 caracteres.")]
             public string Complemento { get; set; }
-            //
-            //Dados Apoio Espiritual
-            //
-            public string Pergunta1 { get; set; }
-            public string Pergunta2 { get; set; }
-            public string Pergunta3 {  get; set; }
-            public string Pergunta4 { get; set; }
-            public string Pergunta5 { get; set; }
-            public string DescricaoMotivoOracao { get; set; }
 
 
             public void ValidaClasse () 
