@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace ControleFinanceiroPessoal.Model
 {
@@ -83,15 +85,100 @@ namespace ControleFinanceiroPessoal.Model
                     throw new ValidationException(sbrErrors.ToString()); 
                 }
             }
-        }
-        
+
+
+            //INICIO DO CRUD
+
+            public void IncluirMembro(string conexao)
+            {
+                string membroJson = Member.SerializedClassUnit(this);
+
+                Databases.Binder B = new Databases.Binder(conexao);
+
+                if (B.status)
+                {
+                    B.Include(this.ID, membroJson);
+                    if (!(B.status))
+                    {
+                        throw new Exception(B.message);
+                    }
+                }
+                else
+                {
+                    throw new Exception(B.message);
+                }
+            }
+
+            public Unit BuscarMembro(string id, string conexao)
+            {
+                Databases.Binder B = new Databases.Binder(Path.Combine(conexao));
+                if (B.status)
+                {
+                    string membroJson = B.Search(id);
+                    return Member.DesSerializedClassUnit(membroJson);
+                }
+                else
+                {
+                    throw new Exception(B.message);
+                }
+                
+            }
+
+            public void AlterarFichario(string conexao)
+            {
+                string membroJson = Member.SerializedClassUnit(this);
+                Databases.Binder B = new Databases.Binder(Path.Combine(conexao));
+                if (B.status)
+                {
+                    B.Update(this.ID, membroJson);
+                    if (!(B.status))
+                    {
+                        throw new Exception(B.message);
+                    }
+                }
+                else
+                {
+                    throw new Exception(B.message);
+                }
+            }
+
+            public void ApagarMembro(string conexao)
+            {
+                Databases.Binder B = new Databases.Binder(Path.Combine(conexao));
+                if (B.status)
+                {
+                    B.Clear(this.ID);
+                    if (!(B.status))
+                    {
+                        throw new Exception(B.message);
+                    }
+                }
+                else
+                {
+                    throw new Exception(B.message);
+                }
+            }
+            
+            public List<string> ListaMembros(string conexao)
+            {
+                Databases.Binder B = new Databases.Binder(Path.Combine(conexao));
+                if (B.status)
+                {
+                    List<string> todosMembros = B.SearchAll();
+                    return todosMembros;
+                }
+                else
+                {
+                    throw new Exception(B.message);
+                }
+            }
+        }       
 
         public class List
         {
             public List<Unit> ListUnit { get; set; }
 
         }
-
         public static Unit DesSerializedClassUnit(string vJason)
         {
             return JsonConvert.DeserializeObject<Unit>(vJason);
@@ -101,6 +188,7 @@ namespace ControleFinanceiroPessoal.Model
         {
             return JsonConvert.SerializeObject(unit);
         }
+
 
 
     }

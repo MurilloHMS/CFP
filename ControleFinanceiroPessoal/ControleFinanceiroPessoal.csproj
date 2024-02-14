@@ -7,6 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>logo-png-branco.ico</ApplicationIcon>
+    <Configurations>Debug;Release;Comunidade Kingdom</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

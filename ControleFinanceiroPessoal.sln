@@ -3,14 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleFinanceiroPessoal", "ControleFinanceiroPessoal\ControleFinanceiroPessoal.csproj", "{6B3CB207-26D2-4DC5-B794-F85C7F419B0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleFinanceiroPessoal", "ControleFinanceiroPessoal\ControleFinanceiroPessoal.csproj", "{6B3CB207-26D2-4DC5-B794-F85C7F419B0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Comunidade Kingdom|Any CPU = Comunidade Kingdom|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B3CB207-26D2-4DC5-B794-F85C7F419B0E}.Comunidade Kingdom|Any CPU.ActiveCfg = Comunidade Kingdom|Any CPU
+		{6B3CB207-26D2-4DC5-B794-F85C7F419B0E}.Comunidade Kingdom|Any CPU.Build.0 = Comunidade Kingdom|Any CPU
 		{6B3CB207-26D2-4DC5-B794-F85C7F419B0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6B3CB207-26D2-4DC5-B794-F85C7F419B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B3CB207-26D2-4DC5-B794-F85C7F419B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU

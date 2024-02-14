@@ -209,6 +209,7 @@ public partial class Frm_Main : Form
         frm.Dock = DockStyle.Fill;
         TabPage tb = new TabPage();
         tb.Name = "Recuperação";
+        tb.Text = "Recuperação";
         tb.Controls.Add(frm);
         tbc_Finance.TabPages.Add(tb);
     }

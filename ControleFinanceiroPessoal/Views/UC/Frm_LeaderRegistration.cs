@@ -31,29 +31,209 @@ namespace ControleFinanceiroPessoal.Views.UC
                 Member.Unit M = new Member.Unit();
                 M = LeituraFormulario();
                 M.ValidaClasse();
-                string clienteJson = Member.SerializedClassUnit(M);
-
-                Binder B = new Binder(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros"));
-
-                if (B.status)
-                {
-                    B.Include(M.ID, clienteJson);
-                    if (B.status)
-                    {
-                        MessageBox.Show($"OK: {B.message}", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ApagarDados();
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Erro: {B.message}", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-
-
+                M.IncluirMembro(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros"));
+                MessageBox.Show("Membro incluido com sucesso!", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException Ex)
             {
                 MessageBox.Show(Ex.Message, "Validador", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch(Exception Ex)
+            {
+                MessageBox.Show(Ex.Message, "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        
+
+        private void Btn_SearchCep_Click(object sender, EventArgs e)
+        {
+            string vCep = MTxt_Cep.Text;
+
+            if (vCep.Length == 9)
+            {
+                var vJson = Requests_Data.GeraJsonCEP(vCep);
+
+                Cep.Unit CEP = new Cep.Unit();
+                CEP = Cep.DesSeializedClassUnit(vJson);
+
+                Txt_Logradouro.Text = CEP.Logradouro;
+                Txt_Cidade.Text = CEP.Localidade;
+                Txt_Bairro.Text = CEP.Bairro;
+                Txt_UF.Text = CEP.Uf;
+                Txt_Complemento.Text = CEP.Complemento;
+            }
+        }
+
+        private void ApagarDados()
+        {
+            Txt_Bairro.Text = string.Empty;
+            Txt_Cidade.Text = string.Empty;
+            Txt_Complemento.Text = string.Empty;
+            Txt_Email.Text = string.Empty;
+            Txt_ID.Text = string.Empty;
+            Txt_UF.Text = string.Empty;
+            Txt_Logradouro.Text = string.Empty;
+            Txt_Nome.Text = string.Empty;
+            Txt_Numero.Text = string.Empty;
+            MTxt_Cep.Text = string.Empty;
+            MTxt_DataNascimento.Text = string.Empty;
+            MTxt_Telefone.Text = string.Empty;
+
+            Rb_CristaoNao.Checked = false;
+            Rb_CristaoSim.Checked = false;
+            Rb_FreqIgrejaNao.Checked = false;
+            Rb_FreqIgrejaSim.Checked = false;
+        }
+
+        private void ApagarToolStripButton_Click(object sender, EventArgs e)
+        {
+            ApagarDados();
+        }
+
+        private void abrirToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (Txt_ID.Text == string.Empty)
+            {
+                MessageBox.Show("Código do Membro Vazio.", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                try
+                {
+                    Member.Unit m = new Member.Unit();
+                    m = m.BuscarMembro(Txt_ID.Text, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros"));
+                    if (m == null)
+                    {
+                        MessageBox.Show("Membro não encontrado", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        WriteForm(m);
+
+                    }
+
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message, "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void recortarToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (Txt_ID.Text == string.Empty)
+            {
+                MessageBox.Show("Código do Membro Vazio.", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                try
+                {
+                    Member.Unit m = new Member.Unit();
+                    m = m.BuscarMembro(Txt_ID.Text, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros"));
+                    if (m == null)
+                    {
+                        MessageBox.Show("Membro não encontrado", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        WriteForm(m);
+                        DialogResult result = MessageBox.Show("Deseja excluir os dados do Membro informado?", "Comunidade Kingdom", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            result = MessageBox.Show("Tem certeza que deseja excluir os dados? essa ação é irreversível", "Comunidade Kingdom", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                            if (result == DialogResult.Yes)
+                            {
+                                m.ApagarMembro(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros"));
+                                MessageBox.Show($"Membro Excluido com sucesso!", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                ApagarDados();
+                            }
+                        }
+
+                    }
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message, "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        private void salvarToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (Txt_ID.Text == string.Empty)
+            {
+                MessageBox.Show("Código do Membro Vazio.", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                try
+                {
+                    Member.Unit M = new Member.Unit();
+                    M = LeituraFormulario();
+                    M.ValidaClasse();
+                    M.AlterarFichario(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros"));
+                    MessageBox.Show($"Membro alterado com sucesso!", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                catch (ValidationException Ex)
+                {
+                    MessageBox.Show(Ex.Message, "Validador", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message, "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void Btn_BuscaMembros_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Member.Unit M = new Member.Unit();
+                List<string> list = new List<string>();
+                string conexao = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros");
+                list = M.ListaMembros(conexao);
+
+                if (list == null)
+                {
+                    MessageBox.Show("Base de dados Vazia, Não existem membros cadastrados", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    List<List<string>> ListaBusca = new List<List<string>>();
+                    foreach (string s in list)
+                    {
+                        M = Member.DesSerializedClassUnit(s);
+                        ListaBusca.Add(new List<string> { M.ID, M.Nome });
+                    }
+                    Frm_SearchMembers F = new Frm_SearchMembers(ListaBusca);
+                    F.ShowDialog();
+                    if (F.DialogResult == DialogResult.OK)
+                    {
+                        var idSelect = F.idSelect;
+                        M = M.BuscarMembro(idSelect, conexao);
+                        if(idSelect != null)
+                        {
+                            WriteForm(M);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Membro não encontrado", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message, "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -133,206 +313,6 @@ namespace ControleFinanceiroPessoal.Views.UC
             }
 
 
-        }
-
-        private void Btn_SearchCep_Click(object sender, EventArgs e)
-        {
-            string vCep = MTxt_Cep.Text;
-
-            if (vCep.Length == 9)
-            {
-                var vJson = Requests_Data.GeraJsonCEP(vCep);
-
-                Cep.Unit CEP = new Cep.Unit();
-                CEP = Cep.DesSeializedClassUnit(vJson);
-
-                Txt_Logradouro.Text = CEP.Logradouro;
-                Txt_Cidade.Text = CEP.Localidade;
-                Txt_Bairro.Text = CEP.Bairro;
-                Txt_UF.Text = CEP.Uf;
-                Txt_Complemento.Text = CEP.Complemento;
-            }
-        }
-
-        private void ApagarDados()
-        {
-            Txt_Bairro.Text = string.Empty;
-            Txt_Cidade.Text = string.Empty;
-            Txt_Complemento.Text = string.Empty;
-            Txt_Email.Text = string.Empty;
-            Txt_ID.Text = string.Empty;
-            Txt_UF.Text = string.Empty;
-            Txt_Logradouro.Text = string.Empty;
-            Txt_Nome.Text = string.Empty;
-            Txt_Numero.Text = string.Empty;
-            MTxt_Cep.Text = string.Empty;
-            MTxt_DataNascimento.Text = string.Empty;
-            MTxt_Telefone.Text = string.Empty;
-
-            Rb_CristaoNao.Checked = false;
-            Rb_CristaoSim.Checked = false;
-            Rb_FreqIgrejaNao.Checked = false;
-            Rb_FreqIgrejaSim.Checked = false;
-        }
-
-        private void ApagarToolStripButton_Click(object sender, EventArgs e)
-        {
-            ApagarDados();
-        }
-
-        private void abrirToolStripButton_Click(object sender, EventArgs e)
-        {
-            if (Txt_ID.Text == string.Empty)
-            {
-                MessageBox.Show("Código do Membro Vazio.", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                Binder B = new Binder(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros"));
-
-                if (B.status)
-                {
-                    string membroJson = B.Search(Txt_ID.Text);
-                    Member.Unit m = new Member.Unit();
-                    m = Member.DesSerializedClassUnit(membroJson);
-                    if (B.status)
-                    {
-                        //MessageBox.Show($"OK: {B.message}", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        WriteForm(m);
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Erro: {B.message}", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show($"Ocorreu um erro: {B.message}", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void recortarToolStripButton_Click(object sender, EventArgs e)
-        {
-            if (Txt_ID.Text == string.Empty)
-            {
-                MessageBox.Show("Código do Membro Vazio.", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                Binder B = new Binder(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros"));
-
-
-                if (B.status)
-                {
-                    string membroJson = B.Search(Txt_ID.Text);
-                    Member.Unit m = new Member.Unit();
-                    m = Member.DesSerializedClassUnit(membroJson);
-                    WriteForm(m);
-
-                    DialogResult result = MessageBox.Show("Deseja excluir os dados do Membro informado?", "Comunidade Kingdom", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (result == DialogResult.Yes)
-                    {
-                        B.Clear(Txt_ID.Text);
-                        if (B.status)
-                        {
-                            MessageBox.Show($"OK: {B.message}", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            ApagarDados();
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Erro: {B.message}", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"Ocorreu um erro: {B.message}", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void salvarToolStripButton_Click(object sender, EventArgs e)
-        {
-            if (Txt_ID.Text == string.Empty)
-            {
-                MessageBox.Show("Código do Membro Vazio.", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                try
-                {
-                    Member.Unit M = new Member.Unit();
-                    M = LeituraFormulario();
-                    M.ValidaClasse();
-                    string clienteJson = Member.SerializedClassUnit(M);
-
-                    Binder B = new Binder(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros"));
-
-                    if (B.status)
-                    {
-                        B.Update(M.ID, clienteJson);
-                        if (B.status)
-                        {
-                            MessageBox.Show($"OK: {B.message}", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            ApagarDados();
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Erro: {B.message}", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-
-
-                }
-                catch (ValidationException Ex)
-                {
-                    MessageBox.Show(Ex.Message, "Validador", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void Btn_BuscaMembros_Click(object sender, EventArgs e)
-        {
-            if (Txt_ID.Text == string.Empty)
-            {
-                Binder B = new Binder(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros"));
-                if (B.status)
-                {
-                    List<string> list = new List<string>();
-                    list = B.SearchAll();
-                    if (B.status)
-                    {
-                        List<List<string>> ListaBusca = new List<List<string>>();
-                        foreach (string s in list)
-                        {
-                            Member.Unit M = Member.DesSerializedClassUnit(s);
-                            ListaBusca.Add(new List<string> { M.ID, M.Nome });
-                        }
-                        Frm_SearchMembers F = new Frm_SearchMembers(ListaBusca);
-                        F.ShowDialog();
-                        if (F.DialogResult == DialogResult.OK)
-                        {
-                            var idSelect = F.idSelect;
-                            string membroJson = B.Search(idSelect);
-                            Member.Unit m = new Member.Unit();
-                            m = Member.DesSerializedClassUnit(membroJson);
-                            WriteForm(m);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Erro: {B.message}", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"Erro: {B.message}", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-            }
         }
     }
 }
