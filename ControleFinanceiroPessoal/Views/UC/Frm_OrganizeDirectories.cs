@@ -35,5 +35,10 @@ namespace ControleFinanceiroPessoal.Views.UC
 
             Organize.OrganizeFiles(pastaOrigem, pastaDestino, Txt_Log, Pgb_Log);
         }
+
+        private void abrirToolStripButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

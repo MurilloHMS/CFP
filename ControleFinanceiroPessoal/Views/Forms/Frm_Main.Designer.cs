@@ -36,24 +36,28 @@
             desconectarToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
             cadastroToolStripMenuItem = new ToolStripMenuItem();
-            cadastrarNovoUsuárioToolStripMenuItem = new ToolStripMenuItem();
-            cadastroDeLíderesToolStripMenuItem = new ToolStripMenuItem();
             cadastroDeMembrosToolStripMenuItem = new ToolStripMenuItem();
-            exibirToolStripMenuItem = new ToolStripMenuItem();
+            cadastroDeMinistériosToolStripMenuItem = new ToolStripMenuItem();
+            cadastrarNovoUsuárioToolStripMenuItem = new ToolStripMenuItem();
+            ControleToolStripMenuItem = new ToolStripMenuItem();
+            controleTotalDashboardToolStripMenuItem = new ToolStripMenuItem();
+            membrosToolStripMenuItem = new ToolStripMenuItem();
+            ministériosToolStripMenuItem = new ToolStripMenuItem();
+            foraDaCaixaToolStripMenuItem = new ToolStripMenuItem();
             ferramentasToolStripMenuItem = new ToolStripMenuItem();
             configuraçõesBancoDeDadosToolStripMenuItem = new ToolStripMenuItem();
             organizarDiretóriosToolStripMenuItem = new ToolStripMenuItem();
             informarDiretórioToolStripMenuItem = new ToolStripMenuItem();
             salvarDadosNoMesmoDiretórioToolStripMenuItem = new ToolStripMenuItem();
+            recuperaçãoDeAcessoToolStripMenuItem = new ToolStripMenuItem();
             tbc_Finance = new TabControl();
             Iml_Menu = new ImageList(components);
-            recuperaçãoDeAcessoToolStripMenuItem = new ToolStripMenuItem();
             Mns_Finance.SuspendLayout();
             SuspendLayout();
             // 
             // Mns_Finance
             // 
-            Mns_Finance.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, cadastroToolStripMenuItem, exibirToolStripMenuItem, ferramentasToolStripMenuItem });
+            Mns_Finance.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, cadastroToolStripMenuItem, ControleToolStripMenuItem, ferramentasToolStripMenuItem });
             Mns_Finance.Location = new Point(0, 0);
             Mns_Finance.Name = "Mns_Finance";
             Mns_Finance.Size = new Size(834, 24);
@@ -92,40 +96,65 @@
             // 
             // cadastroToolStripMenuItem
             // 
-            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarNovoUsuárioToolStripMenuItem, cadastroDeLíderesToolStripMenuItem, cadastroDeMembrosToolStripMenuItem });
+            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroDeMembrosToolStripMenuItem, cadastroDeMinistériosToolStripMenuItem, cadastrarNovoUsuárioToolStripMenuItem });
             cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
             cadastroToolStripMenuItem.Size = new Size(66, 20);
             cadastroToolStripMenuItem.Text = "Cadastro";
-            // 
-            // cadastrarNovoUsuárioToolStripMenuItem
-            // 
-            cadastrarNovoUsuárioToolStripMenuItem.Image = (Image)resources.GetObject("cadastrarNovoUsuárioToolStripMenuItem.Image");
-            cadastrarNovoUsuárioToolStripMenuItem.Name = "cadastrarNovoUsuárioToolStripMenuItem";
-            cadastrarNovoUsuárioToolStripMenuItem.Size = new Size(199, 22);
-            cadastrarNovoUsuárioToolStripMenuItem.Text = "Cadastrar Novo Usuário";
-            cadastrarNovoUsuárioToolStripMenuItem.Click += cadastrarNovoUsuárioToolStripMenuItem_Click;
-            // 
-            // cadastroDeLíderesToolStripMenuItem
-            // 
-            cadastroDeLíderesToolStripMenuItem.Image = Properties.Resources.Add_User_Female;
-            cadastroDeLíderesToolStripMenuItem.Name = "cadastroDeLíderesToolStripMenuItem";
-            cadastroDeLíderesToolStripMenuItem.Size = new Size(199, 22);
-            cadastroDeLíderesToolStripMenuItem.Text = "Cadastro de Líderes";
-            cadastroDeLíderesToolStripMenuItem.Click += cadastroDeLíderesToolStripMenuItem_Click;
             // 
             // cadastroDeMembrosToolStripMenuItem
             // 
             cadastroDeMembrosToolStripMenuItem.Image = Properties.Resources.Add_User_Female;
             cadastroDeMembrosToolStripMenuItem.Name = "cadastroDeMembrosToolStripMenuItem";
-            cadastroDeMembrosToolStripMenuItem.Size = new Size(199, 22);
-            cadastroDeMembrosToolStripMenuItem.Text = "Cadastro de Membros";
+            cadastroDeMembrosToolStripMenuItem.Size = new Size(180, 22);
+            cadastroDeMembrosToolStripMenuItem.Text = "Membros";
             cadastroDeMembrosToolStripMenuItem.Click += cadastroDeMembrosToolStripMenuItem_Click;
             // 
-            // exibirToolStripMenuItem
+            // cadastroDeMinistériosToolStripMenuItem
             // 
-            exibirToolStripMenuItem.Name = "exibirToolStripMenuItem";
-            exibirToolStripMenuItem.Size = new Size(48, 20);
-            exibirToolStripMenuItem.Text = "Exibir";
+            cadastroDeMinistériosToolStripMenuItem.Image = Properties.Resources.Add_User_Female;
+            cadastroDeMinistériosToolStripMenuItem.Name = "cadastroDeMinistériosToolStripMenuItem";
+            cadastroDeMinistériosToolStripMenuItem.Size = new Size(180, 22);
+            cadastroDeMinistériosToolStripMenuItem.Text = "Ministérios";
+            cadastroDeMinistériosToolStripMenuItem.Click += cadastroDeMinistériosToolStripMenuItem_Click;
+            // 
+            // cadastrarNovoUsuárioToolStripMenuItem
+            // 
+            cadastrarNovoUsuárioToolStripMenuItem.Image = (Image)resources.GetObject("cadastrarNovoUsuárioToolStripMenuItem.Image");
+            cadastrarNovoUsuárioToolStripMenuItem.Name = "cadastrarNovoUsuárioToolStripMenuItem";
+            cadastrarNovoUsuárioToolStripMenuItem.Size = new Size(180, 22);
+            cadastrarNovoUsuárioToolStripMenuItem.Text = "Fora da Caixa";
+            cadastrarNovoUsuárioToolStripMenuItem.Click += cadastrarNovoUsuárioToolStripMenuItem_Click;
+            // 
+            // ControleToolStripMenuItem
+            // 
+            ControleToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { controleTotalDashboardToolStripMenuItem, membrosToolStripMenuItem, ministériosToolStripMenuItem, foraDaCaixaToolStripMenuItem });
+            ControleToolStripMenuItem.Name = "ControleToolStripMenuItem";
+            ControleToolStripMenuItem.Size = new Size(65, 20);
+            ControleToolStripMenuItem.Text = "Controle";
+            // 
+            // controleTotalDashboardToolStripMenuItem
+            // 
+            controleTotalDashboardToolStripMenuItem.Name = "controleTotalDashboardToolStripMenuItem";
+            controleTotalDashboardToolStripMenuItem.Size = new Size(167, 22);
+            controleTotalDashboardToolStripMenuItem.Text = "Total (Dashboard)";
+            // 
+            // membrosToolStripMenuItem
+            // 
+            membrosToolStripMenuItem.Name = "membrosToolStripMenuItem";
+            membrosToolStripMenuItem.Size = new Size(167, 22);
+            membrosToolStripMenuItem.Text = "Membros";
+            // 
+            // ministériosToolStripMenuItem
+            // 
+            ministériosToolStripMenuItem.Name = "ministériosToolStripMenuItem";
+            ministériosToolStripMenuItem.Size = new Size(167, 22);
+            ministériosToolStripMenuItem.Text = "Ministérios";
+            // 
+            // foraDaCaixaToolStripMenuItem
+            // 
+            foraDaCaixaToolStripMenuItem.Name = "foraDaCaixaToolStripMenuItem";
+            foraDaCaixaToolStripMenuItem.Size = new Size(167, 22);
+            foraDaCaixaToolStripMenuItem.Text = "Fora da Caixa";
             // 
             // ferramentasToolStripMenuItem
             // 
@@ -162,6 +191,13 @@
             salvarDadosNoMesmoDiretórioToolStripMenuItem.Size = new Size(248, 22);
             salvarDadosNoMesmoDiretórioToolStripMenuItem.Text = "Salvar dados no mesmo diretório";
             // 
+            // recuperaçãoDeAcessoToolStripMenuItem
+            // 
+            recuperaçãoDeAcessoToolStripMenuItem.Name = "recuperaçãoDeAcessoToolStripMenuItem";
+            recuperaçãoDeAcessoToolStripMenuItem.Size = new Size(239, 22);
+            recuperaçãoDeAcessoToolStripMenuItem.Text = "Recuperação de Acesso";
+            recuperaçãoDeAcessoToolStripMenuItem.Click += recuperaçãoDeAcessoToolStripMenuItem_Click;
+            // 
             // tbc_Finance
             // 
             tbc_Finance.Dock = DockStyle.Fill;
@@ -180,13 +216,6 @@
             Iml_Menu.TransparentColor = Color.Transparent;
             Iml_Menu.Images.SetKeyName(0, "Database Administrator_1.ico");
             Iml_Menu.Images.SetKeyName(1, "Add User Male.ico");
-            // 
-            // recuperaçãoDeAcessoToolStripMenuItem
-            // 
-            recuperaçãoDeAcessoToolStripMenuItem.Name = "recuperaçãoDeAcessoToolStripMenuItem";
-            recuperaçãoDeAcessoToolStripMenuItem.Size = new Size(239, 22);
-            recuperaçãoDeAcessoToolStripMenuItem.Text = "Recuperação de Acesso";
-            recuperaçãoDeAcessoToolStripMenuItem.Click += recuperaçãoDeAcessoToolStripMenuItem_Click;
             // 
             // Frm_Main
             // 
@@ -210,7 +239,7 @@
         private TabControl tbc_Finance;
         private ToolStripMenuItem arquivoToolStripMenuItem;
         private ToolStripMenuItem sairToolStripMenuItem;
-        private ToolStripMenuItem exibirToolStripMenuItem;
+        private ToolStripMenuItem ControleToolStripMenuItem;
         private ToolStripMenuItem ferramentasToolStripMenuItem;
         private ToolStripMenuItem configuraçõesBancoDeDadosToolStripMenuItem;
         private ImageList Iml_Menu;
@@ -218,11 +247,15 @@
         private ToolStripMenuItem cadastrarNovoUsuárioToolStripMenuItem;
         private ToolStripMenuItem conectarToolStripMenuItem;
         private ToolStripMenuItem desconectarToolStripMenuItem;
-        private ToolStripMenuItem cadastroDeLíderesToolStripMenuItem;
+        private ToolStripMenuItem cadastroDeMinistériosToolStripMenuItem;
         private ToolStripMenuItem cadastroDeMembrosToolStripMenuItem;
         private ToolStripMenuItem organizarDiretóriosToolStripMenuItem;
         private ToolStripMenuItem informarDiretórioToolStripMenuItem;
         private ToolStripMenuItem salvarDadosNoMesmoDiretórioToolStripMenuItem;
         private ToolStripMenuItem recuperaçãoDeAcessoToolStripMenuItem;
+        private ToolStripMenuItem controleTotalDashboardToolStripMenuItem;
+        private ToolStripMenuItem membrosToolStripMenuItem;
+        private ToolStripMenuItem ministériosToolStripMenuItem;
+        private ToolStripMenuItem foraDaCaixaToolStripMenuItem;
     }
 }

@@ -1,10 +1,11 @@
 ﻿using ControleFinanceiroPessoal.Forms.UC;
 using System;
 using System.Collections.Generic;
-using System.Drawing.Text;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ControleFinanceiroPessoal.Model
 {
@@ -30,32 +31,68 @@ namespace ControleFinanceiroPessoal.Model
         {
             Dictionary<string, string> mapeamentoExtensaoDiretorio = new Dictionary<string, string>
             {
-                {".xlsx", "excel\\xlsx" },
+                { ".xlsx", "excel\\xlsx" },
                 { ".xlsm", "excel\\xlsm" },
-                { ".pdf", "arquivos\\pdf" }
+                { ".csv", "excel\\csv" },
+                { ".pdf" , "arquivos\\pdf" },
+                { ".html", "arquivos\\html" },
+                { ".json", "arquivos\\json" },
+                { ".pptx", "arquivos\\powerPoint" },
+                { ".docx", "arquivos\\word" },
+                { ".xml" , "arquivos\\xml" },
+                { ".XML" , "arquivos\\xml" },
+                { ".dbf" , "arquivos\\dbf" },
+                { ".DBF" , "arquivos\\dbf" },
+                { ".ipynb" , "arquivos\\jupyter" },
+                { ".js" , "arquivos\\javascript" },
+                { ".pbix" , "arquivos\\powerBi" },
+                { ".sqlite" , "arquivos\\sqlLite" },
+                { ".sql" , "arquivos\\sql" },
+                { ".bas" , "arquivos\\bat" },
+                { ".pfx" , "arquivos\\certificados" },
+                { ".css" , "arquivos\\html\\css" },
+                { ".exe" , "arquivos\\executaveis" },
+                { ".py" , "arquivos\\python" },
+                { ".txt" , "arquivos\\txt" },
+                { ".iso" , "downloads\\iso" },
+                { ".ico" , "imagens\\icons" },
+                { ".png" , "imagens\\png" },
+                { ".jpg" , "imagens\\jpg" },
+                { ".jpeg" , "imagens\\jpeg" },
+                { ".mp3" , "musicas" },
+                { ".mp4" , "musicas" }
             };
 
             ClearLog(textBoxLog);
             AddLog(textBoxLog, $"Início do processo de transferência em {DateTime.Now}");
 
-            //Inicializa a ProgressBar
+            // Inicializa a ProgressBar
             progressBar.Minimum = 0;
             progressBar.Value = 0;
 
-            //Obtém todos os arquivos, incluindo os das subpastas
+            // Obtém todos os arquivos, incluindo os das subpastas
             string[] allFiles = Directory.GetFiles(pastaOrigem, "*", SearchOption.AllDirectories);
             int totalFiles = allFiles.Length;
 
-            //Atualiza o máximo da ProgressBar
+            // Atualiza o máximo da ProgressBar
             progressBar.Maximum = totalFiles;
 
-            //caminho do arquivo de log na pasta log
-            string logPath = Path.Combine(pastaDestino, "log.txt");
+            // Caminho do diretório de log
+            string logDirectory = Path.Combine(pastaOrigem, "log");
 
-            //cria ou abre o arquivo de log
-            using (StreamWriter logWriter = new StreamWriter(logPath, true)) 
+            // Cria o diretório de log se não existir
+            if (!Directory.Exists(logDirectory))
             {
-                //escreve a informação de início no log
+                Directory.CreateDirectory(logDirectory);
+            }
+
+            // Caminho do arquivo de log
+            string logPath = Path.Combine(logDirectory, "logs.txt");
+
+            // Cria ou abre o arquivo de log
+            using (StreamWriter logWriter = new StreamWriter(logPath, true))
+            {
+                // Escreve a informação de início no log
                 logWriter.WriteLine($"Início do processo de transferência em {DateTime.Now}");
 
                 foreach (string file in allFiles)
@@ -72,12 +109,20 @@ namespace ControleFinanceiroPessoal.Model
                         }
 
                         string caminhoDestino = Path.Combine(diretorioDestino, Path.GetFileName(file));
-                        File.Copy(file, caminhoDestino);
+                        try
+                        {
+                            File.Move(file, caminhoDestino, true);
+                        }catch (Exception ex)
+                        {
+                            string messageLogs = $"{DateTime.Now} - Erro ao Mover o arquivo: {ex.Message}";
+                            AddLog(textBoxLog, messageLogs);
+                        }
+
 
                         string messageLog = $"{DateTime.Now} - Arquivo {Path.GetFileName(file)} movido para {caminhoDestino}";
                         AddLog(textBoxLog, messageLog);
 
-                        //escreve o log no arquivo
+                        // Escreve o log no arquivo
                         logWriter.WriteLine(messageLog);
                     }
                     else
@@ -85,22 +130,21 @@ namespace ControleFinanceiroPessoal.Model
                         string messageLog = $"{DateTime.Now} - Extensão não mapeada: {extension}";
                         AddLog(textBoxLog, messageLog);
 
-                        //escreve o log no arquivo
+                        // Escreve o log no arquivo
                         logWriter.WriteLine(messageLog);
                     }
-                    //atualiza progressBar
+                    // Atualiza progressBar
                     progressBar.Value++;
                 }
 
-                //Escreve o fim do log
+                // Escreve o fim do log
                 string messageFimLog = $"Fim do processo de transferência em {DateTime.Now}";
                 logWriter.WriteLine(messageFimLog);
                 AddLog(textBoxLog, messageFimLog);
             }
 
-            //limpa progressBar após concluir
+            // Limpa progressBar após concluir
             progressBar.Value = 0;
-
         }
 
         private static void AddLog(TextBox textBox, string message)

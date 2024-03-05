@@ -172,6 +172,9 @@ namespace ControleFinanceiroPessoal.Model
                     throw new Exception(B.message);
                 }
             }
+
+            
+
         }       
 
         public class List

@@ -2,9 +2,6 @@ using ControleFinanceiroPessoal.Forms;
 using ControleFinanceiroPessoal.Forms.UC;
 using ControleFinanceiroPessoal.Model;
 using ControleFinanceiroPessoal.Views.UC;
-using Microsoft.VisualBasic;
-using System.Drawing.Text;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace ControleFinanceiroPessoal;
 
@@ -26,7 +23,7 @@ public partial class Frm_Main : Form
         cadastrarNovoUsuárioToolStripMenuItem.Enabled = tipo;
         configuraçõesBancoDeDadosToolStripMenuItem.Enabled = tipo;
         desconectarToolStripMenuItem.Enabled = tipo;
-        cadastroDeLíderesToolStripMenuItem.Enabled = tipo;
+        cadastroDeMinistériosToolStripMenuItem.Enabled = tipo;
         cadastroDeMembrosToolStripMenuItem.Enabled = tipo;
         organizarDiretóriosToolStripMenuItem.Enabled = tipo;
 
@@ -175,10 +172,7 @@ public partial class Frm_Main : Form
         }
     }
 
-    private void cadastroDeLíderesToolStripMenuItem_Click(object sender, EventArgs e)
-    {
 
-    }
 
     private void cadastroDeMembrosToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -210,6 +204,17 @@ public partial class Frm_Main : Form
         TabPage tb = new TabPage();
         tb.Name = "Recuperação";
         tb.Text = "Recuperação";
+        tb.Controls.Add(frm);
+        tbc_Finance.TabPages.Add(tb);
+    }
+
+    private void cadastroDeMinistériosToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        Frm_Ministerios frm = new Frm_Ministerios();
+        frm.Dock = DockStyle.Fill;
+        TabPage tb = new TabPage();
+        tb.Name = "Cadastro de Ministérios";
+        tb.Text = "Cadastro de Ministérios";
         tb.Controls.Add(frm);
         tbc_Finance.TabPages.Add(tb);
     }
