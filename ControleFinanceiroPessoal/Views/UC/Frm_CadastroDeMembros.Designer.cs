@@ -1,6 +1,6 @@
 ﻿namespace ControleFinanceiroPessoal.Views.UC
 {
-    partial class Frm_LeaderRegistration
+    partial class Frm_CadastroDeMembros
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_LeaderRegistration));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_CadastroDeMembros));
             Txt_ID = new TextBox();
             MTxt_DataNascimento = new MaskedTextBox();
             Grp_codigo = new GroupBox();

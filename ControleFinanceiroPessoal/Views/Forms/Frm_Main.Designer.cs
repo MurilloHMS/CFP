@@ -52,12 +52,14 @@
             recuperaçãoDeAcessoToolStripMenuItem = new ToolStripMenuItem();
             tbc_Finance = new TabControl();
             Iml_Menu = new ImageList(components);
+            financeiroToolStripMenuItem = new ToolStripMenuItem();
+            lançamentoToolStripMenuItem = new ToolStripMenuItem();
             Mns_Finance.SuspendLayout();
             SuspendLayout();
             // 
             // Mns_Finance
             // 
-            Mns_Finance.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, cadastroToolStripMenuItem, ControleToolStripMenuItem, ferramentasToolStripMenuItem });
+            Mns_Finance.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, cadastroToolStripMenuItem, financeiroToolStripMenuItem, ControleToolStripMenuItem, ferramentasToolStripMenuItem });
             Mns_Finance.Location = new Point(0, 0);
             Mns_Finance.Name = "Mns_Finance";
             Mns_Finance.Size = new Size(834, 24);
@@ -105,7 +107,7 @@
             // 
             cadastroDeMembrosToolStripMenuItem.Image = Properties.Resources.Add_User_Female;
             cadastroDeMembrosToolStripMenuItem.Name = "cadastroDeMembrosToolStripMenuItem";
-            cadastroDeMembrosToolStripMenuItem.Size = new Size(180, 22);
+            cadastroDeMembrosToolStripMenuItem.Size = new Size(145, 22);
             cadastroDeMembrosToolStripMenuItem.Text = "Membros";
             cadastroDeMembrosToolStripMenuItem.Click += cadastroDeMembrosToolStripMenuItem_Click;
             // 
@@ -113,7 +115,7 @@
             // 
             cadastroDeMinistériosToolStripMenuItem.Image = Properties.Resources.Add_User_Female;
             cadastroDeMinistériosToolStripMenuItem.Name = "cadastroDeMinistériosToolStripMenuItem";
-            cadastroDeMinistériosToolStripMenuItem.Size = new Size(180, 22);
+            cadastroDeMinistériosToolStripMenuItem.Size = new Size(145, 22);
             cadastroDeMinistériosToolStripMenuItem.Text = "Ministérios";
             cadastroDeMinistériosToolStripMenuItem.Click += cadastroDeMinistériosToolStripMenuItem_Click;
             // 
@@ -121,7 +123,7 @@
             // 
             cadastrarNovoUsuárioToolStripMenuItem.Image = (Image)resources.GetObject("cadastrarNovoUsuárioToolStripMenuItem.Image");
             cadastrarNovoUsuárioToolStripMenuItem.Name = "cadastrarNovoUsuárioToolStripMenuItem";
-            cadastrarNovoUsuárioToolStripMenuItem.Size = new Size(180, 22);
+            cadastrarNovoUsuárioToolStripMenuItem.Size = new Size(145, 22);
             cadastrarNovoUsuárioToolStripMenuItem.Text = "Fora da Caixa";
             cadastrarNovoUsuárioToolStripMenuItem.Click += cadastrarNovoUsuárioToolStripMenuItem_Click;
             // 
@@ -137,6 +139,7 @@
             controleTotalDashboardToolStripMenuItem.Name = "controleTotalDashboardToolStripMenuItem";
             controleTotalDashboardToolStripMenuItem.Size = new Size(167, 22);
             controleTotalDashboardToolStripMenuItem.Text = "Total (Dashboard)";
+            controleTotalDashboardToolStripMenuItem.Click += controleTotalDashboardToolStripMenuItem_Click;
             // 
             // membrosToolStripMenuItem
             // 
@@ -217,6 +220,19 @@
             Iml_Menu.Images.SetKeyName(0, "Database Administrator_1.ico");
             Iml_Menu.Images.SetKeyName(1, "Add User Male.ico");
             // 
+            // financeiroToolStripMenuItem
+            // 
+            financeiroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lançamentoToolStripMenuItem });
+            financeiroToolStripMenuItem.Name = "financeiroToolStripMenuItem";
+            financeiroToolStripMenuItem.Size = new Size(74, 20);
+            financeiroToolStripMenuItem.Text = "Financeiro";
+            // 
+            // lançamentoToolStripMenuItem
+            // 
+            lançamentoToolStripMenuItem.Name = "lançamentoToolStripMenuItem";
+            lançamentoToolStripMenuItem.Size = new Size(180, 22);
+            lançamentoToolStripMenuItem.Text = "Lançamento";
+            // 
             // Frm_Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -257,5 +273,7 @@
         private ToolStripMenuItem membrosToolStripMenuItem;
         private ToolStripMenuItem ministériosToolStripMenuItem;
         private ToolStripMenuItem foraDaCaixaToolStripMenuItem;
+        private ToolStripMenuItem financeiroToolStripMenuItem;
+        private ToolStripMenuItem lançamentoToolStripMenuItem;
     }
 }

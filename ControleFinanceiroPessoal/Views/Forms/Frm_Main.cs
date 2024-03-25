@@ -26,6 +26,14 @@ public partial class Frm_Main : Form
         cadastroDeMinistériosToolStripMenuItem.Enabled = tipo;
         cadastroDeMembrosToolStripMenuItem.Enabled = tipo;
         organizarDiretóriosToolStripMenuItem.Enabled = tipo;
+        recuperaçãoDeAcessoToolStripMenuItem.Enabled = tipo;
+        controleTotalDashboardToolStripMenuItem.Enabled = tipo;
+        membrosToolStripMenuItem.Enabled = tipo;
+        ministériosToolStripMenuItem.Enabled = tipo;
+        foraDaCaixaToolStripMenuItem.Enabled = tipo;
+
+
+
 
         switch (tipo)
         {
@@ -176,7 +184,7 @@ public partial class Frm_Main : Form
 
     private void cadastroDeMembrosToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        Frm_LeaderRegistration frm = new Frm_LeaderRegistration();
+        Frm_CadastroDeMembros frm = new Frm_CadastroDeMembros();
         frm.Dock = DockStyle.Fill;
         TabPage tb = new TabPage();
         tb.Name = "Cadastro de Membros";
@@ -215,6 +223,17 @@ public partial class Frm_Main : Form
         TabPage tb = new TabPage();
         tb.Name = "Cadastro de Ministérios";
         tb.Text = "Cadastro de Ministérios";
+        tb.Controls.Add(frm);
+        tbc_Finance.TabPages.Add(tb);
+    }
+
+    private void controleTotalDashboardToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        Frm_DashboardFinanceiro frm = new Frm_DashboardFinanceiro();
+        frm.Dock = DockStyle.Fill;
+        TabPage tb = new TabPage();
+        tb.Name = "Dashboard";
+        tb.Text = "Dashboard";
         tb.Controls.Add(frm);
         tbc_Finance.TabPages.Add(tb);
     }

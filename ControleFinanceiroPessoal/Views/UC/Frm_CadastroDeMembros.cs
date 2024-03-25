@@ -16,9 +16,9 @@ using ControleFinanceiroPessoal.Views.Forms;
 
 namespace ControleFinanceiroPessoal.Views.UC
 {
-    public partial class Frm_LeaderRegistration : UserControl
+    public partial class Frm_CadastroDeMembros : UserControl
     {
-        public Frm_LeaderRegistration()
+        public Frm_CadastroDeMembros()
         {
             InitializeComponent();
         }
