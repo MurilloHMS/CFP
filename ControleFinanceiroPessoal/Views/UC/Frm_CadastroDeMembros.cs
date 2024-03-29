@@ -23,15 +23,17 @@ namespace ControleFinanceiroPessoal.Views.UC
             InitializeComponent();
         }
 
+        private readonly Member member= new Member();
+
         private void novaToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
 
-                Member.Unit M = new Member.Unit();
+                Member M = new Member();
                 M = LeituraFormulario();
                 M.ValidaClasse();
-                M.IncluirMembro(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros"));
+                M.IncluirMembro();
                 MessageBox.Show("Membro incluido com sucesso!", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException Ex)
@@ -101,8 +103,8 @@ namespace ControleFinanceiroPessoal.Views.UC
             {
                 try
                 {
-                    Member.Unit m = new Member.Unit();
-                    m = m.BuscarMembro(Txt_ID.Text, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros"));
+                    Member m = new Member();
+                    m = member.RetornaMembroPorId(int.Parse(Txt_ID.Text));
                     if (m == null)
                     {
                         MessageBox.Show("Membro não encontrado", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -110,9 +112,7 @@ namespace ControleFinanceiroPessoal.Views.UC
                     else
                     {
                         WriteForm(m);
-
                     }
-
                 }
                 catch (Exception Ex)
                 {
@@ -131,8 +131,8 @@ namespace ControleFinanceiroPessoal.Views.UC
             {
                 try
                 {
-                    Member.Unit m = new Member.Unit();
-                    m = m.BuscarMembro(Txt_ID.Text, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros"));
+                    Member m = new Member();
+                    m = m.RetornaMembroPorId(int.Parse(Txt_ID.Text));
                     if (m == null)
                     {
                         MessageBox.Show("Membro não encontrado", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -148,7 +148,7 @@ namespace ControleFinanceiroPessoal.Views.UC
 
                             if (result == DialogResult.Yes)
                             {
-                                m.ApagarMembro(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros"));
+                                m.ApagarMembro();
                                 MessageBox.Show($"Membro Excluido com sucesso!", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 ApagarDados();
                             }
@@ -174,10 +174,10 @@ namespace ControleFinanceiroPessoal.Views.UC
             {
                 try
                 {
-                    Member.Unit M = new Member.Unit();
+                    Member M = new Member();
                     M = LeituraFormulario();
                     M.ValidaClasse();
-                    M.AlterarFichario(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros"));
+                    M.AlterarDados();
                     MessageBox.Show($"Membro alterado com sucesso!", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
@@ -196,39 +196,21 @@ namespace ControleFinanceiroPessoal.Views.UC
         {
             try
             {
-                Member.Unit M = new Member.Unit();
-                List<string> list = new List<string>();
-                string conexao = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dados", "Membros");
-                list = M.ListaMembros(conexao);
+                Frm_SearchMembers F = new Frm_SearchMembers();
+                F.ShowDialog();
+                if (F.DialogResult == DialogResult.OK)
+                {
+                    var idSelect = F.idSelect;
+                    //M = M.RetornaMembroPorId(idSelect);
+                    if (idSelect != null)
+                    {
+                        WriteForm(member.RetornaMembroPorId(idSelect));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Membro não encontrado", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
-                if (list == null)
-                {
-                    MessageBox.Show("Base de dados Vazia, Não existem membros cadastrados", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    List<List<string>> ListaBusca = new List<List<string>>();
-                    foreach (string s in list)
-                    {
-                        M = Member.DesSerializedClassUnit(s);
-                        ListaBusca.Add(new List<string> { M.ID, M.Nome });
-                    }
-                    Frm_SearchMembers F = new Frm_SearchMembers(ListaBusca);
-                    F.ShowDialog();
-                    if (F.DialogResult == DialogResult.OK)
-                    {
-                        var idSelect = F.idSelect;
-                        M = M.BuscarMembro(idSelect, conexao);
-                        if(idSelect != null)
-                        {
-                            WriteForm(M);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Membro não encontrado", "Comunidade Kingdom", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        
-                    }
                 }
             }
             catch (Exception Ex)
@@ -237,12 +219,15 @@ namespace ControleFinanceiroPessoal.Views.UC
             }
         }
 
-        Member.Unit LeituraFormulario()
+        Member LeituraFormulario()
         {
 
             TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
-            Member.Unit M = new Member.Unit();
-            M.ID = Txt_ID.Text;
+            Member M = new Member();
+            if (!string.IsNullOrEmpty(Txt_ID.Text))
+            {
+                M.ID = int.Parse(Txt_ID.Text);
+            }
             M.Nome = textInfo.ToTitleCase(Txt_Nome.Text);
             M.DataDeNascimento = MTxt_DataNascimento.Text;
             M.Telefone = MTxt_Telefone.Text;
@@ -279,9 +264,9 @@ namespace ControleFinanceiroPessoal.Views.UC
             return M;
         }
 
-        void WriteForm(Member.Unit M)
+        void WriteForm(Member M)
         {
-            Txt_ID.Text = M.ID;
+            Txt_ID.Text = M.ID.ToString();
             Txt_Nome.Text = M.Nome;
             MTxt_DataNascimento.Text = M.DataDeNascimento;
             MTxt_Telefone.Text = M.Telefone;

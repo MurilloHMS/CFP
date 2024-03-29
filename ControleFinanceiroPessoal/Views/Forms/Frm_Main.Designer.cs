@@ -39,6 +39,8 @@
             cadastroDeMembrosToolStripMenuItem = new ToolStripMenuItem();
             cadastroDeMinistériosToolStripMenuItem = new ToolStripMenuItem();
             cadastrarNovoUsuárioToolStripMenuItem = new ToolStripMenuItem();
+            financeiroToolStripMenuItem = new ToolStripMenuItem();
+            lançamentoToolStripMenuItem = new ToolStripMenuItem();
             ControleToolStripMenuItem = new ToolStripMenuItem();
             controleTotalDashboardToolStripMenuItem = new ToolStripMenuItem();
             membrosToolStripMenuItem = new ToolStripMenuItem();
@@ -52,8 +54,6 @@
             recuperaçãoDeAcessoToolStripMenuItem = new ToolStripMenuItem();
             tbc_Finance = new TabControl();
             Iml_Menu = new ImageList(components);
-            financeiroToolStripMenuItem = new ToolStripMenuItem();
-            lançamentoToolStripMenuItem = new ToolStripMenuItem();
             Mns_Finance.SuspendLayout();
             SuspendLayout();
             // 
@@ -107,25 +107,40 @@
             // 
             cadastroDeMembrosToolStripMenuItem.Image = Properties.Resources.Add_User_Female;
             cadastroDeMembrosToolStripMenuItem.Name = "cadastroDeMembrosToolStripMenuItem";
-            cadastroDeMembrosToolStripMenuItem.Size = new Size(145, 22);
+            cadastroDeMembrosToolStripMenuItem.Size = new Size(146, 22);
             cadastroDeMembrosToolStripMenuItem.Text = "Membros";
             cadastroDeMembrosToolStripMenuItem.Click += cadastroDeMembrosToolStripMenuItem_Click;
             // 
             // cadastroDeMinistériosToolStripMenuItem
             // 
-            cadastroDeMinistériosToolStripMenuItem.Image = Properties.Resources.Add_User_Female;
+            cadastroDeMinistériosToolStripMenuItem.Image = (Image)resources.GetObject("cadastroDeMinistériosToolStripMenuItem.Image");
             cadastroDeMinistériosToolStripMenuItem.Name = "cadastroDeMinistériosToolStripMenuItem";
-            cadastroDeMinistériosToolStripMenuItem.Size = new Size(145, 22);
-            cadastroDeMinistériosToolStripMenuItem.Text = "Ministérios";
-            cadastroDeMinistériosToolStripMenuItem.Click += cadastroDeMinistériosToolStripMenuItem_Click;
+            cadastroDeMinistériosToolStripMenuItem.Size = new Size(146, 22);
+            cadastroDeMinistériosToolStripMenuItem.Text = "Fora Da Caixa";
+            cadastroDeMinistériosToolStripMenuItem.Click += cadastroDeForaDaCaixaToolStripMenuItem_Click;
             // 
             // cadastrarNovoUsuárioToolStripMenuItem
             // 
             cadastrarNovoUsuárioToolStripMenuItem.Image = (Image)resources.GetObject("cadastrarNovoUsuárioToolStripMenuItem.Image");
             cadastrarNovoUsuárioToolStripMenuItem.Name = "cadastrarNovoUsuárioToolStripMenuItem";
-            cadastrarNovoUsuárioToolStripMenuItem.Size = new Size(145, 22);
-            cadastrarNovoUsuárioToolStripMenuItem.Text = "Fora da Caixa";
+            cadastrarNovoUsuárioToolStripMenuItem.Size = new Size(146, 22);
+            cadastrarNovoUsuárioToolStripMenuItem.Text = "Ministérios";
             cadastrarNovoUsuárioToolStripMenuItem.Click += cadastrarNovoUsuárioToolStripMenuItem_Click;
+            // 
+            // financeiroToolStripMenuItem
+            // 
+            financeiroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lançamentoToolStripMenuItem });
+            financeiroToolStripMenuItem.Name = "financeiroToolStripMenuItem";
+            financeiroToolStripMenuItem.Size = new Size(74, 20);
+            financeiroToolStripMenuItem.Text = "Financeiro";
+            // 
+            // lançamentoToolStripMenuItem
+            // 
+            lançamentoToolStripMenuItem.Image = (Image)resources.GetObject("lançamentoToolStripMenuItem.Image");
+            lançamentoToolStripMenuItem.Name = "lançamentoToolStripMenuItem";
+            lançamentoToolStripMenuItem.Size = new Size(140, 22);
+            lançamentoToolStripMenuItem.Text = "Lançamento";
+            lançamentoToolStripMenuItem.Click += lançamentoToolStripMenuItem_Click;
             // 
             // ControleToolStripMenuItem
             // 
@@ -136,6 +151,7 @@
             // 
             // controleTotalDashboardToolStripMenuItem
             // 
+            controleTotalDashboardToolStripMenuItem.Image = (Image)resources.GetObject("controleTotalDashboardToolStripMenuItem.Image");
             controleTotalDashboardToolStripMenuItem.Name = "controleTotalDashboardToolStripMenuItem";
             controleTotalDashboardToolStripMenuItem.Size = new Size(167, 22);
             controleTotalDashboardToolStripMenuItem.Text = "Total (Dashboard)";
@@ -177,6 +193,7 @@
             // organizarDiretóriosToolStripMenuItem
             // 
             organizarDiretóriosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { informarDiretórioToolStripMenuItem, salvarDadosNoMesmoDiretórioToolStripMenuItem });
+            organizarDiretóriosToolStripMenuItem.Image = (Image)resources.GetObject("organizarDiretóriosToolStripMenuItem.Image");
             organizarDiretóriosToolStripMenuItem.Name = "organizarDiretóriosToolStripMenuItem";
             organizarDiretóriosToolStripMenuItem.Size = new Size(239, 22);
             organizarDiretóriosToolStripMenuItem.Text = "Organizar Diretórios";
@@ -220,19 +237,6 @@
             Iml_Menu.Images.SetKeyName(0, "Database Administrator_1.ico");
             Iml_Menu.Images.SetKeyName(1, "Add User Male.ico");
             // 
-            // financeiroToolStripMenuItem
-            // 
-            financeiroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lançamentoToolStripMenuItem });
-            financeiroToolStripMenuItem.Name = "financeiroToolStripMenuItem";
-            financeiroToolStripMenuItem.Size = new Size(74, 20);
-            financeiroToolStripMenuItem.Text = "Financeiro";
-            // 
-            // lançamentoToolStripMenuItem
-            // 
-            lançamentoToolStripMenuItem.Name = "lançamentoToolStripMenuItem";
-            lançamentoToolStripMenuItem.Size = new Size(180, 22);
-            lançamentoToolStripMenuItem.Text = "Lançamento";
-            // 
             // Frm_Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -240,9 +244,11 @@
             ClientSize = new Size(834, 600);
             Controls.Add(tbc_Finance);
             Controls.Add(Mns_Finance);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = Mns_Finance;
             Name = "Frm_Main";
             Text = "Controle Financeiro";
+            Load += Frm_Main_Load;
             Mns_Finance.ResumeLayout(false);
             Mns_Finance.PerformLayout();
             ResumeLayout(false);

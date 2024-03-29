@@ -28,14 +28,9 @@ namespace ControleFinanceiroPessoal.Model
         public string UF { get; set; }
         [StringLength(100, ErrorMessage = "O Complemento deve ter no máximo 100 caracteres.")]
         public string Complemento { get; set; }
-        public List<Member> Lideres { get; set; }
+        public int IdLider { get; set; }
         public string Local { get; set; }
-        public List<Member> Membros { get; set; }
+        public int IdMembro { get; set; }
 
-        public ForaDaCaixa()
-        {
-            Lideres = new List<Member>();
-            Membros = new List<Member>();
-        }
     }
 }

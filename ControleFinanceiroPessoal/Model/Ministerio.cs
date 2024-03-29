@@ -1,26 +1,21 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ControleFinanceiroPessoal.Model
 {
-    internal class Ministerio
+    public class Ministerio
     {
+        [Key]
         public string ID { get; set; }
         public string NomeMinisterio {  get; set; }
-        public List<Member> Lideres { get; set; }
-        public List<Member> Membros { get; set; }
+        public int IdLider { get; set; }
+        public int IdMembros { get; set; }
 
-
-        public Ministerio() 
-        {
-            Lideres = new List<Member>();
-            Membros = new List<Member>();
-
-        }
 
         //INICIO DO CRUD
 

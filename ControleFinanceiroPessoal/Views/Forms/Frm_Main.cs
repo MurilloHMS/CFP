@@ -2,6 +2,7 @@ using ControleFinanceiroPessoal.Forms;
 using ControleFinanceiroPessoal.Forms.UC;
 using ControleFinanceiroPessoal.Model;
 using ControleFinanceiroPessoal.Views.UC;
+using System.Security.Permissions;
 
 namespace ControleFinanceiroPessoal;
 
@@ -15,6 +16,7 @@ public partial class Frm_Main : Form
         InitializeComponent();
 
         AlteraOpcoesMenu(false);
+
     }
 
     private void AlteraOpcoesMenu(bool tipo)
@@ -64,6 +66,11 @@ public partial class Frm_Main : Form
 
     private void conectarToolStripMenuItem_Click(object sender, EventArgs e)
     {
+        ConectarNoSistema();
+    }
+
+    public void ConectarNoSistema()
+    {
         Frm_Login frm_Login = new Frm_Login();
         frm_Login.ShowDialog();
 
@@ -83,7 +90,6 @@ public partial class Frm_Main : Form
             }
         }
     }
-
     private void sairToolStripMenuItem_Click(object sender, EventArgs e)
     {
         Application.Exit();
@@ -216,13 +222,14 @@ public partial class Frm_Main : Form
         tbc_Finance.TabPages.Add(tb);
     }
 
-    private void cadastroDeMinistériosToolStripMenuItem_Click(object sender, EventArgs e)
+    private void cadastroDeForaDaCaixaToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        Frm_Ministerios frm = new Frm_Ministerios();
+        Frm_ForaDaCaixa frm = new Frm_ForaDaCaixa();
         frm.Dock = DockStyle.Fill;
         TabPage tb = new TabPage();
-        tb.Name = "Cadastro de Ministérios";
-        tb.Text = "Cadastro de Ministérios";
+        tb.Name = "Cadastro de Fora Da Caixa";
+        tb.Text = "Cadastro de Fora Da Caixa";
+        tb.ImageIndex = 2;
         tb.Controls.Add(frm);
         tbc_Finance.TabPages.Add(tb);
     }
@@ -236,5 +243,20 @@ public partial class Frm_Main : Form
         tb.Text = "Dashboard";
         tb.Controls.Add(frm);
         tbc_Finance.TabPages.Add(tb);
+    }
+
+    private void lançamentoToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        Frm_LancamentosFinanceiro frm = new Frm_LancamentosFinanceiro();
+        frm.Dock = DockStyle.Fill;
+        TabPage tb = new TabPage();
+        tb.Name = "Financeiro";
+        tb.Text = "Financeiro";
+        tb.Controls.Add(frm);
+        tbc_Finance.TabPages.Add(tb);
+    }
+
+    private void Frm_Main_Load(object sender, EventArgs e)
+    {
     }
 }

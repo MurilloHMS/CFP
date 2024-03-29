@@ -1,6 +1,6 @@
 ﻿namespace ControleFinanceiroPessoal.Views.UC
 {
-    partial class Frm_Ministerios
+    partial class Frm_ForaDaCaixa
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Ministerios));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ForaDaCaixa));
             Clb_Lideres = new CheckedListBox();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();

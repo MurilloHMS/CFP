@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControleFinanceiroPessoal.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,13 @@ namespace ControleFinanceiroPessoal.Views.Forms
 {
     public partial class Frm_SearchMembers : Form
     {
-        List<List<string>> _ListaBusca = new List<List<string>>();
-        public string idSelect { get; set; }
-        public Frm_SearchMembers(List<List<string>> ListaBusca)
+        List<ItemBox> _ListaBusca = new List<ItemBox>();
+        public int idSelect { get; set; }
+
+        Member membros = new Member();
+        public Frm_SearchMembers()
         {
-            _ListaBusca = ListaBusca;
+           
             InitializeComponent();
             PreencherLista();
             Lst_Busca.Sorted = true;
@@ -26,12 +29,14 @@ namespace ControleFinanceiroPessoal.Views.Forms
         private void PreencherLista()
         {
             Lst_Busca.Items.Clear();
+            _ListaBusca.Clear();
 
-            foreach (var busca in _ListaBusca)
+            var retornoTodosOsMembros = membros.RetornaListaDeMembros();
+            foreach (var membro in retornoTodosOsMembros)
             {
                 ItemBox x = new ItemBox();
-                x.Id = busca[0];
-                x.Nome = busca[1];
+                x.Id = membro.ID;
+                x.Nome = membro.Nome;
                 Lst_Busca.Items.Add(x);
             }
         }
@@ -46,7 +51,7 @@ namespace ControleFinanceiroPessoal.Views.Forms
 
         private class ItemBox
         {
-            public string Id { get; set; }
+            public int Id { get; set; }
             public string Nome { get; set; }
 
             public override string ToString()
