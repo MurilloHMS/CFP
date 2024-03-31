@@ -12,6 +12,7 @@ namespace ControleFinanceiroPessoal.Model.Databases
         private string _connectionString = "Data Source=192.168.18.100,1435;Initial Catalog=KINGDOM;User ID=sa;Password=Xj7hpmtmma@;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
         public DbSet<Member> Members { get; set; }
+        public DbSet<Financeiro> Financeiros { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -63,6 +63,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Frm_SearchMembers";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Frm_SearchMembers";
             groupBox1.ResumeLayout(false);
             ResumeLayout(false);

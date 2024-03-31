@@ -351,7 +351,7 @@
             ajudaToolStripButton.Size = new Size(23, 22);
             ajudaToolStripButton.Text = "Aju&da";
             // 
-            // Frm_Ministerios
+            // Frm_ForaDaCaixa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -360,7 +360,7 @@
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Name = "Frm_Ministerios";
+            Name = "Frm_ForaDaCaixa";
             Size = new Size(837, 529);
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);

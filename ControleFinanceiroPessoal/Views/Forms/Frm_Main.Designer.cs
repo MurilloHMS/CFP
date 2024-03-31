@@ -246,7 +246,9 @@
             Controls.Add(Mns_Finance);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = Mns_Finance;
+            MaximizeBox = false;
             Name = "Frm_Main";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Controle Financeiro";
             Load += Frm_Main_Load;
             Mns_Finance.ResumeLayout(false);

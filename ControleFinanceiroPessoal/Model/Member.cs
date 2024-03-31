@@ -14,7 +14,7 @@ namespace ControleFinanceiroPessoal.Model
     public class Member
     {
 
-        ControleFinanceiroContext context = new ControleFinanceiroContext();
+        ControleFinanceiroContext _context = new ControleFinanceiroContext();
         //
         //Dados do cadastro
         //
@@ -91,13 +91,13 @@ namespace ControleFinanceiroPessoal.Model
 
         public void IncluirMembro()
         {
-            var membros = new DAL<Member>(context);
+            var membros = new DAL<Member>(_context);
             membros.Adicionar(this);
         }
 
         public Member RetornaMembroPorId(int id)
         {
-            var membrosDAL = new DAL<Member>(context);
+            var membrosDAL = new DAL<Member>(_context);
             return membrosDAL.RetornaPor(m => m.ID.Equals(id));
 
 
@@ -105,19 +105,19 @@ namespace ControleFinanceiroPessoal.Model
 
         public void AlterarDados()
         {
-            var membrosDAL = new DAL<Member>(context);
+            var membrosDAL = new DAL<Member>(_context);
             membrosDAL.Atualizar(this);
         }
 
         public void ApagarMembro()
         {
-            var membrosDAL = new DAL<Member>(context);
+            var membrosDAL = new DAL<Member>(_context);
             membrosDAL.Deletar(this);
         }
 
         public IEnumerable<Member> RetornaListaDeMembros()
         {
-            var membrosDAL = new DAL<Member>(context);
+            var membrosDAL = new DAL<Member>(_context);
             return membrosDAL.ObterTodosOsRegistros();
         }
 
