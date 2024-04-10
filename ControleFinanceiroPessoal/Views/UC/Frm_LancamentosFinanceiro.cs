@@ -44,6 +44,7 @@ namespace ControleFinanceiroPessoal.Views.UC
                 CB_Categorias.Items.Add("AGUA");
                 CB_Categorias.Items.Add("LUZ");
                 CB_Categorias.Items.Add("TELEFONE");
+                CB_Categorias.Items.Add("INTERNET");
                 CB_Categorias.Items.Add("ALUGUEL");
                 CB_Categorias.Items.Add("EQUIPAMENTOS");
                 CB_Categorias.Items.Add("USO INTERNO");

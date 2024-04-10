@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ControleFinanceiroPessoal.Model.Databases;
 
 namespace ControleFinanceiroPessoal.Forms.UC
 {
@@ -17,6 +18,10 @@ namespace ControleFinanceiroPessoal.Forms.UC
             InitializeComponent();
         }
 
-        
+        private void Btn_CriarTabelas_Click(object sender, EventArgs e)
+        {
+            ControleFinanceiroContext context = new ControleFinanceiroContext();
+            context.CriarTabelaSql();
+        }
     }
 }

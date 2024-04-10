@@ -21,6 +21,7 @@ namespace ControleFinanceiroPessoal.Model
         [NotNull]
         public decimal Valor {  get; set; }
         public DateTime? DataVencimento { get; set; }
+        public DateTime? DataEntrada { get; set; } = DateTime.Now;
         [Required(ErrorMessage = "O Tipo do Evento é Obrigatório")]
         [NotNull]
         public string TipoEvento { get; set; }
@@ -79,6 +80,11 @@ namespace ControleFinanceiroPessoal.Model
         {
             var financeiro = new DAL<Financeiro>(_context);
             return financeiro.ObterTodosOsRegistros();
+        }
+
+        public IEnumerable<Financeiro> ObterRegistrosPorData(DateTime dataInicial, DateTime dataFinal)
+        {
+            return _context.Set<Financeiro>().Where(f => f.DataEntrada >= dataInicial && f.DataEntrada <= dataFinal).ToList();
         }
     }
 }

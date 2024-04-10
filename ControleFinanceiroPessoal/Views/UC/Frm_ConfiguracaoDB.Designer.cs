@@ -36,6 +36,7 @@
             label1 = new Label();
             textBox3 = new TextBox();
             pictureBox1 = new PictureBox();
+            Btn_CriarTabelas = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -108,10 +109,21 @@
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
             // 
+            // Btn_CriarTabelas
+            // 
+            Btn_CriarTabelas.Location = new Point(506, 279);
+            Btn_CriarTabelas.Name = "Btn_CriarTabelas";
+            Btn_CriarTabelas.Size = new Size(75, 23);
+            Btn_CriarTabelas.TabIndex = 9;
+            Btn_CriarTabelas.Text = "Criar Tabelas SQL";
+            Btn_CriarTabelas.UseVisualStyleBackColor = true;
+            Btn_CriarTabelas.Click += Btn_CriarTabelas_Click;
+            // 
             // Frm_DataBaseSettings_UC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(Btn_CriarTabelas);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
             Controls.Add(label3);
@@ -135,5 +147,6 @@
         private Label label1;
         private TextBox textBox3;
         private PictureBox pictureBox1;
+        private Button Btn_CriarTabelas;
     }
 }
